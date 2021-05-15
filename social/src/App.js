@@ -1,15 +1,13 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import Header from "./header";
+import Profile from "./Profile";
 
 const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Start Social
-        </p>
-      </header>
+        <Header />
+        <Profile />
     </div>
   );
 }
