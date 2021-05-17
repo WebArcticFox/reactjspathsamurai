@@ -51,24 +51,29 @@ html, body {
   flex-flow: column;
 }
 
-ul.left-menu {
+.left-menu {
   display: flex;
   flex-flow: column;
-  padding: 2px;
-  margin: 5px 0;
+  padding: 0;
+  margin: 0 0;
   text-align: left;
   font-size: 12px;
   list-style: none;
 }
 
-ul.left-menu a {
+.left-menu a {
   color: #888;
-  margin: 5px 0;
-  display: inline-block;
+  padding: 10px 5px;
+  margin: 0;
+  display: flex;
   text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  border-bottom: 1px solid #9a9fbf;
 }
-ul.left-menu a.active, ul.left-menu a:hover {
-  color: #3f4257;
+.left-menu a.active, .left-menu a:hover {
+  background-color: #ddd;
 }
 
 
