@@ -1,0 +1,58 @@
+.container {
+    max-width: 1100px;
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.header {
+    height: 70px;
+    background-color: #3f4257;
+    display: flex;
+    justify-content: center;
+}
+
+.header .page_title {
+    text-transform: uppercase;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header .page_title > * {
+    color: #fff;
+    margin: 0;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.author_page {
+    position: relative;
+    transition: all .3s ease;
+    color: #888da8;
+    fill: #c0c4d8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.author_name {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.author_title {
+    font-weight: 700;
+    font-size: 12px;
+    color: #fff;
+}
+
+.author_subtitle {
+    display: block;
+    font-weight: 700;
+    color: #9a9fbf;
+    font-size: 8px;
+}

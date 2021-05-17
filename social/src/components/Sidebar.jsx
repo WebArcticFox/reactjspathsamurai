@@ -5,23 +5,24 @@ import News_icon from "../news_react.svg";
 import Music_icon from "../music_react.svg";
 import Setting_icon from "../setting_react.svg";
 import React from "react";
+import style from './Sidebar.module.css';
 
 const Sidebar = () => {
     return (
-        <div className="fixed-sidebar">
-            <div className="fixed-sidebar-left sidebar--small" id="sidebar-left">
+        <div className={style.fixed_sidebar}>
+            <div className={style.fixed_sidebar_left} id="sidebar-left">
 
-                <a href="/" className="logo">
-                    <div className="img-wrap">
+                <a href="/" className={style.logo}>
+                    <div className={style.img_wrap}>
                         <img src={Logo} alt="React" width="80px;" />
                     </div>
                 </a>
-                <div className="left-menu">
-                    <a href="#"><img src={Profile_icon} width="40px" /></a>
-                    <a href="#"><img src={Messages_icon} width="40px" /></a>
-                    <a href="#"><img src={News_icon} width="30px" /></a>
-                    <a href="#"><img src={Music_icon} width="30px" /></a>
-                    <a href="#"><img src={Setting_icon} width="30px" /></a>
+                <div className={style.left_menu}>
+                    <a href="#" className='item'><img src={Profile_icon} width="40px" /></a>
+                    <a href="#" className='item'><img src={Messages_icon} width="40px" /></a>
+                    <a href="#" className='item'><img src={News_icon} width="30px" /></a>
+                    <a href="#" className='item'><img src={Music_icon} width="30px" /></a>
+                    <a href="#" className='item'><img src={Setting_icon} width="30px" /></a>
                 </div>
             </div>
         </div>

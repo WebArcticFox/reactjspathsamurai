@@ -1,10 +1,11 @@
 import React from "react";
+import style from './Footer.module.css';
 
 const Footer = () => {
     return (
-        <footer className="footer" id="site-footer">
-            <div className="container">
-                <div className="page-title">
+        <footer className={style.footer} id="site-footer">
+            <div className={style.container}>
+                <div className={style.page_title}>
                     <h6>WebArcticFox</h6>
                 </div>
             </div>

@@ -1,0 +1,48 @@
+.fixed_sidebar {
+    position: fixed;
+    left: 0;
+    padding: 0;
+    width: 70px;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.fixed_sidebar .logo {
+    background-color: #ff5e3a;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    flex-flow: column;
+}
+
+.left_menu {
+    display: flex;
+    flex-flow: column;
+    padding: 0;
+    margin: 0 0;
+    text-align: left;
+    font-size: 12px;
+    list-style: none;
+}
+
+.left_menu a {
+    color: #888;
+    padding: 10px 5px;
+    margin: 0;
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    border-bottom: 1px solid #9a9fbf;
+}
+.left_menu a.active, .left_menu a:hover {
+    background-color: #ddd;
+}

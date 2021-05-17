@@ -1,20 +1,21 @@
 import React from "react";
+import style from './Header.module.css';
 
 const Header = () => {
     return (
-        <header className="header" id="site-header">
-            <div className="container">
-                <div className="page-title">
+        <header className={style.header} id="site-header">
+            <div className={style.container}>
+                <div className={style.page_title}>
                     <h6>Profile Page</h6>
                 </div>
 
 
-                <div className="author-page author vcard inline-items more">
-                    <a href="/profile" className="author-name fn">
-                        <div className="author-title">
+                <div className={style.author_page}>
+                    <a href="/profile" className={style.author_name}>
+                        <div className={style.author_title}>
                             Alex
                         </div>
-                        <span className="author-subtitle">REACT COWBOY</span>
+                        <span className={style.author_subtitle}>REACT COWBOY</span>
                     </a>
                 </div>
             </div>
