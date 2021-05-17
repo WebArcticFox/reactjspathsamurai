@@ -8,6 +8,7 @@ html, body {
 
 .App {
   min-height: 100%;
+  box-sizing: border-box;
   width: 100%;
   display: flex;
   flex-flow: column;
@@ -25,6 +26,52 @@ html, body {
   justify-content: space-between;
   width: 100%;
 }
+
+.fixed-sidebar {
+  position: fixed;
+  left: 0;
+  padding: 0;
+  width: 70px;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.fixed-sidebar .logo {
+  background-color: #ff5e3a;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  flex-flow: column;
+}
+
+ul.left-menu {
+  display: flex;
+  flex-flow: column;
+  padding: 2px;
+  margin: 5px 0;
+  text-align: left;
+  font-size: 12px;
+  list-style: none;
+}
+
+ul.left-menu a {
+  color: #888;
+  margin: 5px 0;
+  display: inline-block;
+  text-decoration: none;
+}
+ul.left-menu a.active, ul.left-menu a:hover {
+  color: #3f4257;
+}
+
+
 
 .header {
   height: 70px;
@@ -80,11 +127,10 @@ html, body {
 .content {
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: start;
+  flex-flow: column;
   min-height: 600px;
   margin: 20px 0;
-  padding: 20px;
+  padding: 0;
   background-color: #fff;
 }
 
@@ -92,4 +138,47 @@ html, body {
   color: #282c34;
   font-weight: bold;
   font-size: 2em;
+}
+
+.profile--content {
+  padding: 20px;
+}
+
+.top-header-thumb img {
+  display: block;
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+}
+
+img {
+  vertical-align: unset;
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+}
+
+
+.footer {
+  height: 70px;
+  background-color: #3f4257;
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer .page-title {
+  text-transform: uppercase;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer .page-title > * {
+  color: #fff;
+  margin: 0;
+  font-weight: bold;
+  font-size: 1rem;
 }
