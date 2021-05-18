@@ -13,11 +13,11 @@ const Sidebar = () => {
         <div className={style.fixed_sidebar}>
             <div className={style.fixed_sidebar_left} id="sidebar-left">
 
-                <a href="/" className={style.logo}>
+                <NavLink to="/profile" className={style.logo}>
                     <div className={style.img_wrap}>
                         <img src={Logo} alt="React" width="80px;" />
                     </div>
-                </a>
+                </NavLink>
                 <div className={style.left_menu}>
                     <NavLink to="/profile" className={style.item} activeClassName={style.active}><img src={Profile_icon} width="40px" /></NavLink>
                     <NavLink to="/messages" className={style.item} activeClassName={style.active}><img src={Messages_icon} width="40px" /></NavLink>

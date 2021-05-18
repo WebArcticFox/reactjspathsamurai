@@ -24,7 +24,7 @@
 .notification_list {
     margin-bottom: 0;
 }
-.notification_list li {
+.notification_list a {
     padding: 15px;
     border-bottom: 1px solid #e6ecf5;
     display: block;
@@ -34,7 +34,7 @@
     align-items: center;
     justify-content: space-between;
 }
-.chat_message .author_thumb {
+.author_thumb {
     height: 50px;
     width: 50px;
 }
@@ -66,4 +66,48 @@
     font-size: 0.8em;
     display: block;
     margin: 10px 0;
+}
+
+.link_chat {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+.link_chat.active {
+    background-color: #eee;
+}
+
+.message_in_dialog {
+    margin: 10px;
+    border: 1px solid #e6ecf5;
+    padding: 5px 10px;
+    width: 70%;
+    color: #515365;
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+.message_in_dialog p {
+    margin: 0;
+    width: 87%;
+}
+
+.message_in_dialog .author_thumb {
+    width: 10%;
+    margin-right: 2%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.message_in_dialog.message_for_people {
+    flex-flow: row-reverse;
+    float: right;
+}
+
+.message_in_dialog.message_for_me {
+    float: left;
 }
