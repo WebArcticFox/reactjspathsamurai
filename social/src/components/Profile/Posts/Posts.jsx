@@ -7,7 +7,7 @@ let PostArray = [
         postId: 1,
         postH1: 'My travel story',
         postText: 'Hi',
-        likeCount: '22'
+        likeCount: '28'
     },
     {
         postId: 1,

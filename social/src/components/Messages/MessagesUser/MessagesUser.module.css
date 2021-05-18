@@ -1,0 +1,36 @@
+
+.author_thumb {
+    height: 50px;
+    width: 50px;
+}
+.author_thumb img {
+    border-radius: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    display: block;
+}
+.notification_event {
+    width: 84%;
+}
+.notification_friend {
+    color: #515365;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 5px 0;
+    display: block;
+}
+.chat_message_item, .notification_date {
+    color: #888da8;
+    font-size: 0.8em;
+    display: block;
+    margin: 10px 0;
+}
+
+.link_chat {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+.link_chat.active {
+    background-color: #eee;
+}

@@ -11,7 +11,7 @@ const HeaderProfile = () => {
                 <img className={style.author_thumb} src="https://st.fl.ru/users/he/heikun/foto/f_293609fee65839c2.jpeg" alt="author" />
                 <div className={style.author_content}>
                     <p className={style.author_name}>Alexander Kravchenko</p>
-                    <div className={style.country}>San Francisco, CA</div>
+                    <div className={style.country}>Polotsk, Belarus</div>
                 </div>
             </div>
         </div>

@@ -6,7 +6,7 @@ const Header = () => {
         <header className={style.header} id="site-header">
             <div className={style.container}>
                 <div className={style.page_title}>
-                    <h6>Profile Page</h6>
+                    <h6>React Social Project</h6>
                 </div>
 
 
