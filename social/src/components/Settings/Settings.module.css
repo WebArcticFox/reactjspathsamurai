@@ -1,0 +1,17 @@
+.content {
+    width: 100%;
+    display: flex;
+    min-height: 340px;
+    margin: 10px 0;
+    padding: 0;
+    background-color: #fff;
+    position: relative;
+}
+
+.container {
+    max-width: 1100px;
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+    width: 100%;
+}
