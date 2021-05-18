@@ -12,14 +12,14 @@ import {BrowserRouter, Route} from "react-router-dom";
 
 
 
-const App = () => {
+const App = (props) => {
   return (
       <BrowserRouter>
         <div className="App">
             <Sidebar />
             <Header />
-            <Route path="/profile" component={Profile}/>
-            <Route path="/messages" component={Messages}/>
+            <Route path="/profile" render={ () => <Profile PostArray={props.PostArray} /> } />
+            <Route path="/messages" render={ () => <Messages MessagesUsers={props.MessagesUsers} MessagesArray={props.MessagesArray} /> } />
             <Route path="/news" component={News}/>
             <Route path="/music" component={Music}/>
             <Route path="/settings" component={Settings}/>

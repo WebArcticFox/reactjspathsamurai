@@ -4,7 +4,7 @@ import Posts from "./Posts/Posts";
 import HeaderProfile from "./ProfileInfo/HeaderProfile/HeaderProfile";
 import AboutUser from "./ProfileInfo/AboutUser/AboutUser";
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <div className={style.container}>
             <div className={style.content}>
@@ -14,7 +14,7 @@ const Profile = () => {
                 <AboutUser />
             </div>
             <div className={style.content}>
-                <Posts />
+                <Posts PostArray={props.PostArray} />
             </div>
         </div>
     )
