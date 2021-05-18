@@ -8,7 +8,7 @@ import state from './redux/state'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App PostArray={state.PostArray} MessagesArray={state.MessagesArray} MessagesUsers={state.MessagesUsers} />
+    <App state={state} />
   </React.StrictMode>,
   document.getElementById('root')
 );

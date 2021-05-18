@@ -7,8 +7,9 @@ import Setting_icon from "../../setting_react.svg";
 import React from "react";
 import style from './Sidebar.module.css';
 import {NavLink} from "react-router-dom";
+import FriendList from "./FriendList/FriendList";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
     return (
         <div className={style.fixed_sidebar}>
             <div className={style.fixed_sidebar_left} id="sidebar-left">
@@ -25,6 +26,7 @@ const Sidebar = () => {
                     <NavLink to="/music" className={style.item} activeClassName={style.active}><img src={Music_icon} width="30px" /></NavLink>
                     <NavLink to="/settings" className={style.item} activeClassName={style.active}><img src={Setting_icon} width="30px" /></NavLink>
                 </div>
+                <FriendList state={props.state} />
             </div>
         </div>
     )

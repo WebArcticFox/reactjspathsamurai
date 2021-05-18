@@ -11,12 +11,12 @@ const Messages = (props) => {
             <div className={style.content}>
                 <div className={style.list_messages}>
                     <div className={`${style.notification_list} ${style.chat_message}`}>
-                        {props.MessagesUsers.map( user => <MessagesUser userId={user.userId} userImage={user.userImage} userName={user.userName} lastMessage={user.lastMessage} lastMessageDate={user.lastMessageDate} /> )}
+                        {props.state.messagesUsers.map( user => <MessagesUser userId={user.userId} userImage={user.userImage} userName={user.userName} lastMessage={user.lastMessage} lastMessageDate={user.lastMessageDate} /> )}
                     </div>
                 </div>
                 <div className={style.now_dialogs}>
                     <Route path="/messages/1">
-                        {props.MessagesArray.map( message => <Message userImage={message.userImage} textMessage={message.textMessage} messageStyle={message.messageStyle} /> )}
+                        {props.state.messagesArray.map( message => <Message userImage={message.userImage} textMessage={message.textMessage} messageStyle={message.messageStyle} /> )}
                     </Route>
                 </div>
             </div>

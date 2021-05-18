@@ -16,10 +16,10 @@ const App = (props) => {
   return (
       <BrowserRouter>
         <div className="App">
-            <Sidebar />
+            <Sidebar state={props.state.sideBar} />
             <Header />
-            <Route path="/profile" render={ () => <Profile PostArray={props.PostArray} /> } />
-            <Route path="/messages" render={ () => <Messages MessagesUsers={props.MessagesUsers} MessagesArray={props.MessagesArray} /> } />
+            <Route path="/profile" render={ () => <Profile state={props.state.profilePage} /> } />
+            <Route path="/messages" render={ () => <Messages state={props.state.messagesPage} /> } />
             <Route path="/news" component={News}/>
             <Route path="/music" component={Music}/>
             <Route path="/settings" component={Settings}/>

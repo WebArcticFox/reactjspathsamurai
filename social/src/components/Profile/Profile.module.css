@@ -2,7 +2,6 @@
     width: 100%;
     display: flex;
     flex-flow: column;
-    min-height: 340px;
     margin: 10px 0;
     padding: 0;
     background-color: #fff;
