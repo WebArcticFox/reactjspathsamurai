@@ -1,0 +1,13 @@
+.profile__content p {
+    color: #282c34;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.profile__content a {
+    color: #282c34;
+}
+
+.profile__content {
+    padding: 20px;
+}
