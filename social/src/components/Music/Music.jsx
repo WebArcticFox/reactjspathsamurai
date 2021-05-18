@@ -15,7 +15,7 @@ const Music = () => {
             <div className={style.content}>
                 <div className={style.music_from}>
                     <SpotifyPlayer
-                        uri="spotify:album:1TIUsv8qmYLpBEhvmBmyBk"
+                        uri="spotify:album:10v912xgTZbjAtYfyKWJCS"
                         size={size}
                         view={view}
                         theme={theme}
