@@ -34,6 +34,9 @@
     align-items: center;
     justify-content: space-between;
 }
+.notification_list a:last-child {
+    border-bottom: unset;
+}
 .author_thumb {
     height: 50px;
     width: 50px;
@@ -51,6 +54,7 @@
     border-left: 1px solid #e6ecf5;
     width: 60%;
 }
+
 .notification_event {
     width: 84%;
 }
