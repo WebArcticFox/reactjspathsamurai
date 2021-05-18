@@ -1,0 +1,70 @@
+.profile__posts {
+    padding: 0;
+    border-top: 1px solid #3f4257;
+    color: #282c34;
+    font-size: 1em;
+}
+
+.profile__posts_item {
+    padding: 25px;
+    border-bottom: 1px solid #e6ecf5;
+    background-color: #fafbfd;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post__content {
+    margin-left: 20px;
+    width: 90%;
+}
+
+.profile__posts_item .profile__posts_item_auth {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-top: 0;
+}
+
+.profile__posts_item p {
+    font-size: 0.8em;
+    color: #3f4257;
+    margin-bottom: 0;
+}
+
+.profile__posts_img {
+    border-radius: 100%;
+    border: 3px solid #ccc;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 70px;
+    height: 70px;
+    background-color: #3f4257;
+}
+
+.post__like {
+    font-weight: 700;
+    float: right;
+    margin: 10px 0;
+    text-align: center;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: .812rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: all .15s ease-in-out;
+    background-color: #ff5e3a;
+    border-color: #ff5e3a;
+    display: inline-block;
+    vertical-align: middle;
+    color: #fff;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.post__like:hover {
+    background-color: #ff763a;
+    border-color: #ff763a;
+    opacity: 1;
+}

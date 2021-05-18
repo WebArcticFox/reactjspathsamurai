@@ -1,0 +1,60 @@
+.profile__posts {
+    padding: 0;
+    color: #282c34;
+    font-size: 1em;
+}
+
+.comment_form {
+    padding: 20px;
+}
+
+.comment_form__text_area {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 1.1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #e6ecf5;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    min-height: 60px;
+    height: 60px;
+    transition: all .3s ease;
+    resize: none;
+    color: #515365;
+    line-height: inherit;
+    font-size: .875rem;
+    outline: none;
+    background-color: transparent;
+}
+
+.comment_form__input {
+    display: inline-block;
+    font-weight: 700;
+    float: right;
+    margin: 10px 0;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: .812rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: all .15s ease-in-out;
+    background-color: #ff5e3a;
+    border-color: #ff5e3a;
+    color: #fff;
+    cursor: pointer;
+}
+
+.comment_form__input:hover {
+    background-color: #ff763a;
+    border-color: #ff763a;
+    opacity: 1;
+}
