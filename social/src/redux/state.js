@@ -1,3 +1,9 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const SEND_MESSAGE = 'SEND-MESSAGE';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+
+
 let store = {
     _state :{
         profilePage: {
@@ -99,7 +105,7 @@ let store = {
       return this._state
     },
     dispatch(action){ // {type: 'xxx'}
-        if(action.type === 'ADD-POST'){
+        if(action.type === ADD_POST){
             let newPost = {
                 postId: 5,
                 postH1: 'Test',
@@ -109,10 +115,10 @@ let store = {
             this._state.profilePage.postArray.push(newPost)
             this._state.profilePage.newPostText = ''
             this._subscriber(this._state);
-        }else if (action.type === 'UPDATE-NEW-POST-TEXT'){
+        }else if (action.type === UPDATE_NEW_POST_TEXT){
             this._state.profilePage.newPostText = action.newPostText
             this._subscriber(this._state);
-        }else if (action.type === 'SEND-MESSAGE'){
+        }else if (action.type === SEND_MESSAGE){
             let newMessage = {
                 messageId: 5,
                 userImage: "https://st.fl.ru/users/he/heikun/foto/f_293609fee65839c2.jpeg",
@@ -122,7 +128,7 @@ let store = {
             this._state.messagesPage.messagesArray.push(newMessage)
             this._state.messagesPage.currentMessageText = ''
             this._subscriber(this._state);
-        }else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT'){
+        }else if (action.type === UPDATE_NEW_MESSAGE_TEXT){
             this._state.messagesPage.currentMessageText = action.newMessageText
             this._subscriber(this._state);
         }
@@ -130,4 +136,11 @@ let store = {
     }
 }
 window.store=store
+
+
+export const addPostActionCreator = () => ({type: ADD_POST})
+export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newPostText: text})
+export const sendMessageActionCreator = () => ({type: SEND_MESSAGE})
+export const updateNewMessageTextActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newMessageText: text})
+
 export default store;

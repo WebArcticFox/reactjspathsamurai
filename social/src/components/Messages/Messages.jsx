@@ -3,6 +3,7 @@ import style from './Messages.module.css';
 import Message from "./Message/Message";
 import MessagesUser from "./MessagesUser/MessagesUser";
 import {Route} from "react-router-dom";
+import {sendMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/state";
 
 
 const Messages = (props) => {
@@ -10,13 +11,11 @@ const Messages = (props) => {
     let newMessageArea = React.createRef()
 
     let sendMessage = () => {
-        let action = {type:'SEND-MESSAGE'};
-        props.dispatch(action);
+        props.dispatch(sendMessageActionCreator());
     }
 
     let onMessageChange = () => {
-        let action = {type:'UPDATE-NEW-MESSAGE-TEXT', newMessageText: newMessageArea.current.value};
-        props.dispatch(action)
+        props.dispatch(updateNewMessageTextActionCreator(newMessageArea.current.value))
     }
 
     return (

@@ -1,19 +1,18 @@
 import style from "./Posts.module.css";
 import React from "react";
 import Post from "./Post/Post";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/state";
 
 
 const Posts = (props) => {
     let newPostArea = React.createRef()
 
     let sendPost = () => {
-        let action = {type:'ADD-POST'};
-        props.dispatch(action);
+        props.dispatch(addPostActionCreator());
     }
 
     let onPostChange = () => {
-        let action = {type: 'UPDATE-NEW-POST-TEXT', newPostText: newPostArea.current.value};
-        props.dispatch(action)
+        props.dispatch(updateNewPostTextActionCreator(newPostArea.current.value))
     }
 
     return (
@@ -22,7 +21,7 @@ const Posts = (props) => {
                 {props.state.postArray.map( post => <Post name={post.postH1} message={post.postText} likeCount={post.likeCount} /> )}
             </div>
             <div className={style.comment_form}>
-                <div className={style.comment_form__text}>
+                <div>
                     <textarea ref={newPostArea} onChange={ onPostChange } className={style.comment_form__text_area} value={props.state.newPostText}></textarea>
                 </div>
                 <button onClick={ sendPost } className={style.comment_form__input}>Post Comment</button>
