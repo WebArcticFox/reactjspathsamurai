@@ -17,8 +17,8 @@ const App = (props) => {
         <div className="App">
             <Sidebar state={props.state.sideBar} />
             <Header />
-            <Route path="/profile" render={ () => <Profile state={props.state.profilePage} sendPost={props.sendPost} updateNewPostText={props.updateNewPostText} /> } />
-            <Route path="/messages" render={ () => <Messages state={props.state.messagesPage} sendMessage={props.sendMessage} updateNewMessageText={props.updateNewMessageText} /> } />
+            <Route path="/profile" render={ () => <Profile state={props.state.profilePage} dispatch={props.dispatch} /> } />
+            <Route path="/messages" render={ () => <Messages state={props.state.messagesPage} dispatch={props.dispatch} /> } />
             <Route path="/news" component={News}/>
             <Route path="/music" component={Music}/>
             <Route path="/settings" component={Settings}/>

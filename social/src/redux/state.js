@@ -1,10 +1,4 @@
 let store = {
-    _subscriber(){
-        console.log('Not found subscribe')
-    },
-    setSubscribe(subscriber){
-        this._subscriber = subscriber
-    },
     _state :{
         profilePage: {
             postArray: [
@@ -95,41 +89,45 @@ let store = {
             ]
         }
     },
+    _subscriber(){
+        console.log('Not found subscribe')
+    },
+    setSubscribe(subscriber){
+        this._subscriber = subscriber
+    },
     getState() {
       return this._state
     },
-    sendPost() {
-        let newPost = {
-            postId: 5,
-            postH1: 'Test',
-            postText: this._state.profilePage.newPostText,
-            likeCount: 0
+    dispatch(action){ // {type: 'xxx'}
+        if(action.type === 'ADD-POST'){
+            let newPost = {
+                postId: 5,
+                postH1: 'Test',
+                postText: this._state.profilePage.newPostText,
+                likeCount: 0
+            }
+            this._state.profilePage.postArray.push(newPost)
+            this._state.profilePage.newPostText = ''
+            this._subscriber(this._state);
+        }else if (action.type === 'UPDATE-NEW-POST-TEXT'){
+            this._state.profilePage.newPostText = action.newPostText
+            this._subscriber(this._state);
+        }else if (action.type === 'SEND-MESSAGE'){
+            let newMessage = {
+                messageId: 5,
+                userImage: "https://st.fl.ru/users/he/heikun/foto/f_293609fee65839c2.jpeg",
+                textMessage: this._state.messagesPage.currentMessageText,
+                messageStyle: 'message_for_people'
+            }
+            this._state.messagesPage.messagesArray.push(newMessage)
+            this._state.messagesPage.currentMessageText = ''
+            this._subscriber(this._state);
+        }else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT'){
+            this._state.messagesPage.currentMessageText = action.newMessageText
+            this._subscriber(this._state);
         }
-        this._state.profilePage.postArray.push(newPost)
-        this._state.profilePage.newPostText = ''
-        this._subscriber(this._state);
-    },
-    updateNewMessageText(newText) {
-        this._state.messagesPage.currentMessageText = newText
-        this._subscriber(this._state);
-    },
-    sendMessage() {
-        let newMessage = {
-            messageId: 5,
-            userImage: "https://st.fl.ru/users/he/heikun/foto/f_293609fee65839c2.jpeg",
-            textMessage: this._state.messagesPage.currentMessageText,
-            messageStyle: 'message_for_people'
-        }
-        this._state.messagesPage.messagesArray.push(newMessage)
-        this._state.messagesPage.currentMessageText = ''
-        this._subscriber(this._state);
-    },
-    updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText
-        this._subscriber(this._state);
+
     }
-
-
 }
-
+window.store=store
 export default store;
