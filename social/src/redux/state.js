@@ -1,3 +1,7 @@
+let rerenderTree = () => {
+    console.log('State changed');
+}
+
 let state = {
     profilePage: {
         postArray: [
@@ -14,6 +18,7 @@ let state = {
                 likeCount: '13'
             }
         ],
+        newPostText: ''
     },
     messagesPage: {
         messagesArray: [
@@ -65,6 +70,7 @@ let state = {
                 lastMessageDate: '2 days ago'
             }
         ],
+        currentMessageText: ''
     },
     sideBar: {
         friends: [
@@ -86,6 +92,46 @@ let state = {
         ]
     }
 
+}
+
+window.state = state;
+
+export const sendPost = () => {
+    let newPost = {
+        postId: 5,
+        postH1: 'Test',
+        postText: state.profilePage.newPostText,
+        likeCount: 0
+    }
+    state.profilePage.postArray.push(newPost)
+    state.profilePage.newPostText = ''
+    rerenderTree(state);
+}
+
+export const updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText
+    rerenderTree(state);
+}
+
+export const sendMessage = () => {
+    let newMessage = {
+        messageId: 5,
+        userImage: "https://st.fl.ru/users/he/heikun/foto/f_293609fee65839c2.jpeg",
+        textMessage: state.messagesPage.currentMessageText,
+        messageStyle: 'message_for_people'
+    }
+    state.messagesPage.messagesArray.push(newMessage)
+    state.messagesPage.currentMessageText = ''
+    rerenderTree(state);
+}
+
+export const updateNewMessageText = (newText) => {
+    state.messagesPage.currentMessageText = newText
+    rerenderTree(state);
+}
+
+export const subscribe = (observer) => {
+    rerenderTree = observer
 }
 
 export default state;

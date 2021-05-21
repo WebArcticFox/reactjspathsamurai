@@ -8,24 +8,22 @@ import Messages from "./components/Messages/Messages";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import {BrowserRouter, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 
 
 
 const App = (props) => {
   return (
-      <BrowserRouter>
         <div className="App">
             <Sidebar state={props.state.sideBar} />
             <Header />
-            <Route path="/profile" render={ () => <Profile state={props.state.profilePage} /> } />
-            <Route path="/messages" render={ () => <Messages state={props.state.messagesPage} /> } />
+            <Route path="/profile" render={ () => <Profile state={props.state.profilePage} sendPost={props.sendPost} updateNewPostText={props.updateNewPostText} /> } />
+            <Route path="/messages" render={ () => <Messages state={props.state.messagesPage} sendMessage={props.sendMessage} updateNewMessageText={props.updateNewMessageText} /> } />
             <Route path="/news" component={News}/>
             <Route path="/music" component={Music}/>
             <Route path="/settings" component={Settings}/>
             <Footer />
         </div>
-      </BrowserRouter>
   );
 }
 

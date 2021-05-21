@@ -14,7 +14,7 @@ const Profile = (props) => {
                 <AboutUser />
             </div>
             <div className={style.content}>
-                <Posts PostArray={props.state.postArray} />
+                <Posts PostArray={props.state.postArray}  newPostText={props.state.newPostText} sendPost={props.sendPost} updateNewPostText={props.updateNewPostText} />
             </div>
         </div>
     )

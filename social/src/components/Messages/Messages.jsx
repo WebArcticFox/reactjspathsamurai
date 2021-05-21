@@ -6,6 +6,17 @@ import {Route} from "react-router-dom";
 
 
 const Messages = (props) => {
+
+    let newMessageArea = React.createRef()
+
+    let sendMessage = () => {
+        props.sendMessage();
+    }
+
+    let onMessageChange = () => {
+        props.updateNewMessageText(newMessageArea.current.value)
+    }
+
     return (
         <div className={style.container}>
             <div className={style.content}>
@@ -17,6 +28,12 @@ const Messages = (props) => {
                 <div className={style.now_dialogs}>
                     <Route path="/messages/1">
                         {props.state.messagesArray.map( message => <Message userImage={message.userImage} textMessage={message.textMessage} messageStyle={message.messageStyle} /> )}
+                        <div className={style.comment_form}>
+                            <div className={style.comment_form__text}>
+                                <textarea ref={newMessageArea} value={props.state.currentMessageText} onChange={ onMessageChange } className={style.comment_form__text_area}></textarea>
+                            </div>
+                            <button onClick={ sendMessage } className={style.comment_form__input}>Send</button>
+                        </div>
                     </Route>
                 </div>
             </div>
