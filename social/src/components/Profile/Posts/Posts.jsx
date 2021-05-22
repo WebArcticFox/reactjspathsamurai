@@ -5,6 +5,7 @@ import Post from "./Post/Post";
 
 
 const Posts = (props) => {
+    debugger
     let newPostArea = React.createRef()
 
     let onSendPost = () => {
