@@ -97,5 +97,3 @@ Y
 )social/src/components/Sidebar/Sidebar.jsx,2/3/23cea5b95a9879d8df915ad6470d2b6a7aa79057
 M
 social/src/reportWebVitals.js,c/d/cd66514f608bda34d4796a0bbc5bc57c29a34cc6
-D
-social/src/render.js,4/0/409a11f4514ddbf027daac631529c8746b3ecbd2

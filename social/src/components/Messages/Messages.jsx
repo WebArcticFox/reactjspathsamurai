@@ -3,7 +3,7 @@ import style from './Messages.module.css';
 import Message from "./Message/Message";
 import MessagesUser from "./MessagesUser/MessagesUser";
 import {Route} from "react-router-dom";
-import {sendMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/state";
+import {sendMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/messagesReducer";
 
 
 const Messages = (props) => {
