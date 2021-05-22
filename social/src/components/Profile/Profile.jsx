@@ -1,8 +1,8 @@
 import React from "react";
 import style from './Profile.module.css';
-import Posts from "./Posts/Posts";
 import HeaderProfile from "./ProfileInfo/HeaderProfile/HeaderProfile";
 import AboutUser from "./ProfileInfo/AboutUser/AboutUser";
+import PostsContainer from "./Posts/PostsContainer";
 
 const Profile = (props) => {
     return (
@@ -14,7 +14,7 @@ const Profile = (props) => {
                 <AboutUser />
             </div>
             <div className={style.content}>
-                <Posts state={props.state}  dispatch={props.dispatch} />
+                <PostsContainer store={props.store} />
             </div>
         </div>
     )

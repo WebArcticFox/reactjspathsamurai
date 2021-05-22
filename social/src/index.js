@@ -7,21 +7,21 @@ import {BrowserRouter} from "react-router-dom";
 import App from "./App";
 
 
-let rerenderTree = (state) => {
+let rerenderTree = (store) => {
     ReactDOM.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App state={state} dispatch={store.dispatch.bind(store)}/>
+                <App store={store}/>
             </BrowserRouter>
         </React.StrictMode>,
         document.getElementById('root')
     );
 }
 
-rerenderTree(store.getState());
+rerenderTree(store);
 
 store.subscribe( () => {
-    rerenderTree(store.getState())
+    rerenderTree(store)
 });
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

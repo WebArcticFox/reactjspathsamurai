@@ -26,7 +26,7 @@ const Sidebar = (props) => {
                     <NavLink to="/music" className={style.item} activeClassName={style.active}><img src={Music_icon} width="30px" /></NavLink>
                     <NavLink to="/settings" className={style.item} activeClassName={style.active}><img src={Setting_icon} width="30px" /></NavLink>
                 </div>
-                <FriendList state={props.state} />
+                <FriendList friendList={props.friendList} />
             </div>
         </div>
     )
