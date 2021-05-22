@@ -7,8 +7,6 @@ import StoreContext from "../../../storeContext";
 const PostsContainer = (props) => {
     // let state = props.store.getState();
 
-
-
     return (
         <StoreContext.Consumer>
         {

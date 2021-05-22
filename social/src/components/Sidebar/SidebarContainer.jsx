@@ -1,11 +1,20 @@
 import React from "react";
 import Sidebar from "./Sidebar";
+import StoreContext from "../../storeContext";
 
 const SidebarContainer = (props) => {
-    let state = props.store.getState()
-
     return (
-        <Sidebar friendList={state.sideBar.friends} />
+        <StoreContext.Consumer>
+            {
+                (store) => {
+                    let state = store.getState()
+
+                    return (
+                        <Sidebar friendList={state.sideBar.friends} />
+                    )
+                }
+            }
+        </StoreContext.Consumer>
     )
 }
 
