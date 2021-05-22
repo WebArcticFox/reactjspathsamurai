@@ -83,8 +83,6 @@ Isocial/src/components/Profile/ProfileInfo/HeaderProfile/HeaderProfile.jsx,3/b/
 Psocial/src/components/Profile/ProfileInfo/HeaderProfile/HeaderProfile.module.css,1/d/1d3478f0456fece49c581185548cb465d541971d
 `
 0social/src/components/Profile/Profile.module.css,7/c/7c38df0c51e0b948367ecf9f2c26e9a7f87912d2
-I
-social/src/redux/state.js,0/0/005efb2e277100c15f5816f3018e47f8bb98ba6a
 g
 7social/src/components/Sidebar/FriendList/FriendList.jsx,5/b/5b432eb725517aec2b5f6eed603b6a7b8c598187
 r
@@ -97,3 +95,11 @@ Y
 )social/src/components/Sidebar/Sidebar.jsx,2/3/23cea5b95a9879d8df915ad6470d2b6a7aa79057
 M
 social/src/reportWebVitals.js,c/d/cd66514f608bda34d4796a0bbc5bc57c29a34cc6
+R
+"social/src/redux/profileReducer.js,e/5/e5988c6c452eac6df8ad68c4f521845cf4848296
+R
+"social/src/redux/sidebarReducer.js,8/2/82dae21c9319b3cb580e2f0949dd6aaf07ef982e
+S
+#social/src/redux/messagesReducer.js,d/d/dd3e8f4ce79a59462bb2b0624e1c698cbdbeb094
+I
+social/src/redux/store.js,7/f/7fd4465df3910321ebd3f95c6fe9b541256c433f

@@ -2,7 +2,7 @@ import profileReducer from "./profileReducer";
 import messagesReducer from "./messagesReducer";
 import sideBarReducer from "./sidebarReducer";
 
-let store = {
+let oldStore = {
     _state :{
         profilePage: {
             postArray: [
@@ -96,7 +96,7 @@ let store = {
     _subscriber(){
         console.log('Not found subscribe')
     },
-    setSubscribe(subscriber){
+    subscribe(subscriber){
         this._subscriber = subscriber
     },
     getState() {
@@ -110,7 +110,7 @@ let store = {
         this._subscriber(this._state);
     }
 }
-window.store=store
+window.store=oldStore
 
 
-export default store;
+export default oldStore;
