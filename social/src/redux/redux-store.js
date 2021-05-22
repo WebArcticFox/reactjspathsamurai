@@ -4,11 +4,13 @@ import sideBarReducer from "./sidebarReducer";
 import messagesReducer from "./messagesReducer";
 
 let reducers = combineReducers({
-    profilePage:profileReducer,
-    messagesPage:messagesReducer,
+    profilePage: profileReducer,
+    messagesPage: messagesReducer,
     sideBar: sideBarReducer
 })
 
 let store = createStore(reducers);
+
+window.store = store;
 
 export default store;

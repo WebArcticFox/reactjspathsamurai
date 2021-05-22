@@ -55,20 +55,26 @@ let initialState = {
 }
 
 const messagesReducer = (state = initialState, action) => {
+    let copyState = {}
     switch (action.type) {
         case SEND_MESSAGE:
+            copyState = {
+                ...state,
+                messagesArray: [...state.messagesArray]
+            }
             let newMessage = {
                 messageId: 5,
                 userImage: "https://st.fl.ru/users/he/heikun/foto/f_293609fee65839c2.jpeg",
                 textMessage: state.currentMessageText,
                 messageStyle: 'message_for_people'
             }
-            state.messagesArray.push(newMessage)
-            state.currentMessageText = ''
-            return state
+            copyState.messagesArray.push(newMessage)
+            copyState.currentMessageText = ''
+            return copyState
         case UPDATE_NEW_MESSAGE_TEXT:
-            state.currentMessageText = action.newMessageText
-            return state
+            copyState = {...state}
+            copyState.currentMessageText = action.newMessageText
+            return copyState
         default:
             return state
     }
