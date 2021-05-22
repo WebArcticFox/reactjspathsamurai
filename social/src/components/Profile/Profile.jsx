@@ -14,7 +14,7 @@ const Profile = (props) => {
                 <AboutUser />
             </div>
             <div className={style.content}>
-                <PostsContainer store={props.store} />
+                <PostsContainer />
             </div>
         </div>
     )

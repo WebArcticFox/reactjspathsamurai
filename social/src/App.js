@@ -15,10 +15,10 @@ import {Route} from "react-router-dom";
 const App = (props) => {
   return (
         <div className="App">
-            <SidebarContainer store={props.store} />
+            {/*<SidebarContainer store={props.store} />*/}
             <Header />
-            <Route path="/profile" render={ () => <Profile store={props.store} /> } />
-            <Route path="/messages" render={ () => <MessagesContainer store={props.store} /> } />
+            <Route path="/profile" render={ () => <Profile /> } />
+            {/*<Route path="/messages" render={ () => <MessagesContainer store={props.store} /> } />*/}
             <Route path="/news" component={News}/>
             <Route path="/music" component={Music}/>
             <Route path="/settings" component={Settings}/>
