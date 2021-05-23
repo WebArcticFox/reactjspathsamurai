@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     min-height: 900px;
+    flex-flow: column;
     margin: 10px 0;
     padding: 0;
     background-color: #fff;
@@ -50,7 +51,7 @@
 .notification_friend {
     color: #282c34;
     text-decoration: none;
-    padding: 4px 0;
+    padding: 0 0 4px 0;
 }
 
 .chat_message_item {
@@ -95,3 +96,29 @@
     border-bottom: 1px solid #e6ecf5;
 }
 
+
+.get_users {
+    display: inline-block;
+    font-weight: 700;
+    margin: 20px;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: .812rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: all .15s ease-in-out;
+    background-color: #ff5e3a;
+    border-color: #ff5e3a;
+    color: #fff;
+    cursor: pointer;
+
+}
+
+.get_users:hover {
+    background-color: #ff763a;
+    border-color: #ff763a;
+    opacity: 1;
+}
