@@ -1,4 +1,3 @@
-import React from "react";
 import Sidebar from "./Sidebar";
 import {connect} from "react-redux";
 
@@ -8,10 +7,7 @@ let mapStateToProps = (state) => {
         friendList: state.sideBar.friends
     }
 }
-let mapDispatchToProps = (dispatch) => {
 
-}
-
-const SidebarContainer = connect(mapStateToProps,mapDispatchToProps)(Sidebar)
+const SidebarContainer = connect(mapStateToProps,{})(Sidebar)
 
 export default SidebarContainer;

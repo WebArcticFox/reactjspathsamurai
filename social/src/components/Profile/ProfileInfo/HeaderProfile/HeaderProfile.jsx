@@ -5,7 +5,7 @@ const HeaderProfile = () => {
     return(
         <div>
             <div className={style.top_header_thumb}>
-                <img src='https://webmandry.com/wp-content/uploads/2013/10/2013_10_962_03.jpg' />
+                <img src='https://webmandry.com/wp-content/uploads/2013/10/2013_10_962_03.jpg' alt='some value' />
             </div>
             <div className={style.top_header_author}>
                 <img className={style.author_thumb} src="https://st.fl.ru/users/he/heikun/foto/f_293609fee65839c2.jpeg" alt="author" />

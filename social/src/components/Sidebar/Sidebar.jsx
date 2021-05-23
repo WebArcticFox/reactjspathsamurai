@@ -20,11 +20,11 @@ const Sidebar = (props) => {
                     </div>
                 </NavLink>
                 <div className={style.left_menu}>
-                    <NavLink to="/profile" className={style.item} activeClassName={style.active}><img src={Profile_icon} width="40px" /></NavLink>
-                    <NavLink to="/messages" className={style.item} activeClassName={style.active}><img src={Messages_icon} width="40px" /></NavLink>
-                    <NavLink to="/news" className={style.item} activeClassName={style.active}><img src={News_icon} width="30px" /></NavLink>
-                    <NavLink to="/music" className={style.item} activeClassName={style.active}><img src={Music_icon} width="30px" /></NavLink>
-                    <NavLink to="/settings" className={style.item} activeClassName={style.active}><img src={Setting_icon} width="30px" /></NavLink>
+                    <NavLink to="/profile" className={style.item} activeClassName={style.active}><img alt='some value' src={Profile_icon} width="40px" /></NavLink>
+                    <NavLink to="/messages" className={style.item} activeClassName={style.active}><img alt='some value' src={Messages_icon} width="40px" /></NavLink>
+                    <NavLink to="/news" className={style.item} activeClassName={style.active}><img alt='some value' src={News_icon} width="30px" /></NavLink>
+                    <NavLink to="/music" className={style.item} activeClassName={style.active}><img alt='some value' src={Music_icon} width="30px" /></NavLink>
+                    <NavLink to="/settings" className={style.item} activeClassName={style.active}><img alt='some value' src={Setting_icon} width="30px" /></NavLink>
                 </div>
                 <FriendList friendList={props.friendList} />
             </div>

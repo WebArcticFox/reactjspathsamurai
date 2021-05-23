@@ -18,7 +18,7 @@ const Posts = (props) => {
     return (
         <div>
             <div className={style.profile__posts}>
-                {props.postArray.map( post => <Post name={post.postH1} message={post.postText} likeCount={post.likeCount} /> )}
+                {props.postArray.map( post => <Post key={post.postId} name={post.postH1} message={post.postText} likeCount={post.likeCount} /> )}
             </div>
             <div className={style.comment_form}>
                 <div>

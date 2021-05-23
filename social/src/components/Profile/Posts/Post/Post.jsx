@@ -5,7 +5,7 @@ const Post = (props) => {
     return(
         <div className={style.profile__posts_item}>
             <div>
-                <img className={style.profile__posts_img} src="https://st.fl.ru/users/he/heikun/foto/f_293609fee65839c2.jpeg" />
+                <img className={style.profile__posts_img} alt="some value" src="https://st.fl.ru/users/he/heikun/foto/f_293609fee65839c2.jpeg" />
             </div>
             <div className={style.post__content}>
                 <p className={style.profile__posts_item_auth}>{props.name}</p>
