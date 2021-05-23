@@ -101,5 +101,13 @@ R
 "social/src/redux/sidebarReducer.js,8/2/82dae21c9319b3cb580e2f0949dd6aaf07ef982e
 S
 #social/src/redux/messagesReducer.js,d/d/dd3e8f4ce79a59462bb2b0624e1c698cbdbeb094
-I
-social/src/redux/store.js,7/f/7fd4465df3910321ebd3f95c6fe9b541256c433f
+L
+social/src/redux/oldStore.js,8/6/86acc1bb90036cd5038d38f8dbdd54ef2159e753
+O
+social/src/redux/redux-store.js,6/8/6897c34c7c55cd8cc3171e0d5e7f35396233db49
+f
+6social/src/components/Profile/Posts/PostsContainer.jsx,a/2/a20713c823d0140366fddcaa65a15e375bc99921
+b
+2social/src/components/Sidebar/SidebarContainer.jsx,9/a/9a0a9383163d6c4395573a62bf2e6d067bb8f4c9
+d
+4social/src/components/Messages/MessagesContainer.jsx,d/8/d8038b97bf8bc78d8a4066f395c87983e3417d4c
