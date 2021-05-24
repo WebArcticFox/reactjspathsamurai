@@ -22,11 +22,11 @@ const App = (props) => {
             <SidebarContainer />
             <Header />
             <Route path="/profile" render={ () => <Profile /> } />
+            <Route path="/users" render={ () => <UsersContainer /> } />
             <Route path="/messages" render={ () => <MessagesContainer /> } />
             <Route path="/news" component={News}/>
             <Route path="/music" component={Music}/>
             <Route path="/settings" component={Settings}/>
-            <Route path="/users" render={ () => <UsersContainer /> } />
             <Footer />
         </div>
   );
