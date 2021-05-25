@@ -126,6 +126,7 @@
 .pagination {
     padding: 20px;
     display: block;
+    text-align: center;
 }
 
 .pagination_item {
@@ -138,7 +139,7 @@
     transition: all 0.2s;
     font-size: 0.8em;
     font-weight: bold;
-    float: left;
+    display: inline-block;
 }
 
 .pagination_item:hover, .pagination_item.active_page {
