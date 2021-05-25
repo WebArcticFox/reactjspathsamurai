@@ -1,23 +1,24 @@
 import React from "react";
 import style from './Header.module.css';
+import {NavLink} from "react-router-dom";
 
-const Header = () => {
+const Header = (props) => {
     return (
         <header className={style.header} id="site-header">
             <div className={style.container}>
                 <div className={style.page_title}>
                     <h6>React Social Project</h6>
                 </div>
-
-
-                <div className={style.author_page}>
-                    <a href="/profile" className={style.author_name}>
+                {props.isAuth?<div className={style.author_page}>
+                    <NavLink to="/profile/" className={style.author_name}>
                         <div className={style.author_title}>
-                            Alex
+                            {props.login}
                         </div>
                         <span className={style.author_subtitle}>REACT COWBOY</span>
-                    </a>
-                </div>
+                    </NavLink>
+                </div>:<NavLink to="/login" className={style.login_user}>Login</NavLink>}
+
+
             </div>
         </header>
     )
