@@ -3,15 +3,21 @@ import style from './Profile.module.css';
 import HeaderProfile from "./ProfileInfo/HeaderProfile/HeaderProfile";
 import AboutUser from "./ProfileInfo/AboutUser/AboutUser";
 import PostsContainer from "./Posts/PostsContainer";
+import Preloader from "../common/Prealoader/Preloader";
 
 const Profile = (props) => {
+
+    if(!props.profile) {
+        return (<Preloader />)
+    }
+
     return (
         <div className={style.container}>
             <div className={style.content}>
-                <HeaderProfile />
+                <HeaderProfile profile={props.profile} />
             </div>
             <div className={style.content}>
-                <AboutUser />
+                <AboutUser profile={props.profile} />
             </div>
             <div className={style.content}>
                 <PostsContainer />

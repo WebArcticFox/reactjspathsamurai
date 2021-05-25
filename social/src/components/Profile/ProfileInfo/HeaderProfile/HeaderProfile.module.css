@@ -9,6 +9,7 @@
 .top_header_thumb img {
     vertical-align: unset;
     max-width: 100%;
+    max-height: 200px;
     height: auto;
     display: inline-block;
 }

@@ -8,11 +8,11 @@ const Posts = (props) => {
     let newPostArea = React.createRef()
 
     let onSendPost = () => {
-        props.sendPost();
+        props.addPost();
     }
 
     let onPostChange = () => {
-        props.updateText(newPostArea.current.value)
+        props.updatePostText(newPostArea.current.value)
     }
 
     return (

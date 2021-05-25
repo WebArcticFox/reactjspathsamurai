@@ -1,17 +1,18 @@
 import style from "./HeaderProfile.module.css";
 import React from "react";
+import notFoundPhoto from "../../../../assets/images/not_found_photo.svg";
 
-const HeaderProfile = () => {
+const HeaderProfile = (props) => {
     return(
         <div>
             <div className={style.top_header_thumb}>
-                <img src='https://webmandry.com/wp-content/uploads/2013/10/2013_10_962_03.jpg' alt='some value' />
+                <img src={props.profile.photos.large? props.profile.photos.large: notFoundPhoto} alt='some value' />
             </div>
             <div className={style.top_header_author}>
-                <img className={style.author_thumb} src="https://st.fl.ru/users/he/heikun/foto/f_293609fee65839c2.jpeg" alt="author" />
+                <img className={style.author_thumb} src={props.profile.photos.small? props.profile.photos.small: notFoundPhoto} alt="author" />
                 <div className={style.author_content}>
-                    <p className={style.author_name}>Alexander Kravchenko</p>
-                    <div className={style.country}>Polotsk, Belarus</div>
+                    <p className={style.author_name}>{props.profile.fullName}</p>
+                    <div className={style.country}>{props.profile.lookingForAJobDescription}</div>
                 </div>
             </div>
         </div>

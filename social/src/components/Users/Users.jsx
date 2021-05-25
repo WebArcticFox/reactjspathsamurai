@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./Users.module.css";
 import notFoundPhoto from "../../assets/images/not_found_photo.svg";
+import {NavLink} from "react-router-dom";
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount/props.pageSize)
@@ -24,11 +25,11 @@ let Users = (props) => {
                 <div className={style.notification_list}>
                     {
                         props.users.map(u => <div className={style.item_friend} key={u.id}>
-                            <div className={style.author_thumb}>
+                            <NavLink to={`profile/${u.id}`} className={style.author_thumb}>
                                 <img src={u.photos.small != null ? u.photos.small: notFoundPhoto} alt="author" />
-                            </div>
+                            </NavLink>
                             <div className={style.notification_event}>
-                                <a href="#" className={style.notification_friend}>{u.name}</a>
+                                <NavLink to={`profile/${u.id}`} className={style.notification_friend}>{u.name}</NavLink>
                                 <span className={style.chat_message_item}>Location notfound</span>
                             </div>
                             <div className={style.notification_content}>
@@ -37,7 +38,7 @@ let Users = (props) => {
                             <span className={style.notification_icon}>
                             { u.followed
                                 ?<button onClick={ () => {props.unFollow(u.id)} } className={style.accept_request}>UnFollow</button>
-                                :<button onClick={ () => {props.onFollow(u.id)} } className={style.accept_request}>Follow</button>}
+                                :<button onClick={ () => {props.follow(u.id)} } className={style.accept_request}>Follow</button>}
                     </span>
                         </div>)
                     }

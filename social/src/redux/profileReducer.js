@@ -1,7 +1,11 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const IS_FETCHING_CHANGE = 'IS_FETCHING_CHANGE';
 
 let initialState = {
+    profile: null,
+    isFetching: false,
     postArray: [
         {
             postId: 1,
@@ -38,12 +42,24 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 newPostText: action.newPostText
             }
+        case SET_USER_PROFILE:
+            return {
+                ...state, profile: action.userProfile
+            }
+        case IS_FETCHING_CHANGE: {
+            return {
+                ...state,
+                isFetching: action.isFetching
+            }
+        }
         default:
             return state;
     }
 }
 
-export const addPostActionCreator = () => ({type: ADD_POST})
-export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newPostText: text})
+export const addPost = () => ({type: ADD_POST})
+export const updatePostText = (text) => ({type: UPDATE_NEW_POST_TEXT, newPostText: text})
+export const setUserProfile = (userProfile) => ({type: SET_USER_PROFILE, userProfile})
+export const isFetchingChange = (isFetching) => ({type: IS_FETCHING_CHANGE, isFetching})
 
 export default profileReducer;

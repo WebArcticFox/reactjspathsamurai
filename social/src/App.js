@@ -2,7 +2,7 @@ import React from "react";
 import './App.css';
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Profile from "./components/Profile/Profile";
+import ProfileContainer from "./components/Profile/ProfileInfo/ProfileContainer";
 import MessagesContainer from "./components/Messages/MessagesContainer";
 import SidebarContainer from "./components/Sidebar/SidebarContainer";
 import UsersContainer from "./components/Users/UsersContainer";
@@ -16,12 +16,13 @@ import {Route} from "react-router-dom";
 
 
 
+
 const App = (props) => {
   return (
         <div className="App">
             <SidebarContainer />
             <Header />
-            <Route path="/profile" render={ () => <Profile /> } />
+            <Route path="/profile" render={ () => <ProfileContainer /> } />
             <Route path="/users" render={ () => <UsersContainer /> } />
             <Route path="/messages" render={ () => <MessagesContainer /> } />
             <Route path="/news" component={News}/>
