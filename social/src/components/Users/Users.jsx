@@ -12,25 +12,6 @@ let Users = (props) => {
         pages.push(i);
     }
 
-    let sendFollow = (userId) => {
-        props.isFollowingChange(true, userId)
-        followsAPI.follow(userId).then(data => {
-            if(data.resultCode===0) {
-                props.follow(userId)
-            }
-            props.isFollowingChange(false, userId)
-        })
-    }
-
-    let deleteFollow = (userId) => {
-        props.isFollowingChange(true, userId)
-        followsAPI.unFollow(userId).then(data => {
-            if(data.resultCode===0) {
-                props.unFollow(userId)
-            }
-            props.isFollowingChange(false, userId)
-        })
-    }
 
     return (
         <div className={style.container}>
@@ -58,8 +39,8 @@ let Users = (props) => {
                             </div>
                             <span className={style.notification_icon}>
                             { u.followed
-                                ?<button disabled={props.followingInProgress.some(id => id === u.id)} onClick={ () => { deleteFollow(u.id) } } className={style.accept_request}>UnFollow</button>
-                                :<button disabled={props.followingInProgress.some(id => id === u.id)} onClick={ () => { sendFollow(u.id)} } className={style.accept_request}>Follow</button>}
+                                ?<button disabled={props.followingInProgress.some(id => id === u.id)} onClick={ () => { props.unFollowUser(u.id)} } className={style.accept_request}>UnFollow</button>
+                                :<button disabled={props.followingInProgress.some(id => id === u.id)} onClick={ () => { props.followUser(u.id)} } className={style.accept_request}>Follow</button>}
                     </span>
                         </div>)
                     }

@@ -1,3 +1,5 @@
+import {followsAPI, usersAPI} from "../api/api";
+
 const FOLLOW = 'FOLLOW';
 const UN_FOLLOW = 'UN_FOLLOW';
 const SET_USERS = 'SET_USERS';
@@ -72,7 +74,7 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 followingInProgress: action.followingInProgress
                     ?[...state.followingInProgress, action.userId]
-                    : state.followingInProgress.filter(id => id != action.userId)
+                    : state.followingInProgress.filter(id => id !== action.userId)
             }
         }
         default:
@@ -87,5 +89,45 @@ export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, current
 export const setTotalUsersCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, totalUsersCount})
 export const isFetchingChange = (isFetching) => ({type: IS_FETCHING_CHANGE, isFetching})
 export const isFollowingChange = (followingInProgress, userId) => ({type: IS_FOLLOWING_CHANGE, followingInProgress, userId})
+
+
+// Thunks
+export const getUsers = (currentPage, pageSize) => {
+    return(dispatch) => {
+        dispatch(isFetchingChange(true));
+        dispatch(setCurrentPage(currentPage));
+        usersAPI.getUsers(currentPage, pageSize).then(data => {
+            dispatch(setUsers(data.items))
+            dispatch(setTotalUsersCount(data.totalCount))
+            dispatch(isFetchingChange(false))
+        })
+    }
+}
+
+export const followUser = (userId) => {
+    return(dispatch) => {
+        dispatch(isFollowingChange(true, userId))
+        followsAPI.follow(userId).then(data => {
+            if(data.resultCode===0) {
+                dispatch(follow(userId))
+            }
+            dispatch(isFollowingChange(false, userId))
+        })
+    }
+}
+
+export const unFollowUser = (userId) => {
+    return(dispatch) => {
+        dispatch(isFollowingChange(true, userId))
+        followsAPI.unFollow(userId).then(data => {
+            if(data.resultCode===0) {
+                dispatch(unFollow(userId))
+            }
+            dispatch(isFollowingChange(false, userId))
+        })
+    }
+}
+
+
 
 export default usersReducer;
