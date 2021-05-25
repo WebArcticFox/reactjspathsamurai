@@ -2,7 +2,7 @@ import React from "react";
 import style from "./Users.module.css";
 import notFoundPhoto from "../../assets/images/not_found_photo.svg";
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
+import {followsAPI} from "../../api/api";
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount/props.pageSize)
@@ -13,28 +13,22 @@ let Users = (props) => {
     }
 
     let sendFollow = (userId) => {
-        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`, {}, {
-            withCredentials: true,
-            headers: {
-                "API-KEY": "c2a22318-a7af-4454-8310-6e9aed9fb5cd"
-            }
-        }).then(response => {
-            if(response.data.resultCode===0) {
+        props.isFollowingChange(true, userId)
+        followsAPI.follow(userId).then(data => {
+            if(data.resultCode===0) {
                 props.follow(userId)
             }
+            props.isFollowingChange(false, userId)
         })
     }
 
     let deleteFollow = (userId) => {
-        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`, {
-            withCredentials: true,
-            headers: {
-                "API-KEY": "c2a22318-a7af-4454-8310-6e9aed9fb5cd"
-            }
-        }).then(response => {
-            if(response.data.resultCode===0) {
+        props.isFollowingChange(true, userId)
+        followsAPI.unFollow(userId).then(data => {
+            if(data.resultCode===0) {
                 props.unFollow(userId)
             }
+            props.isFollowingChange(false, userId)
         })
     }
 
@@ -64,8 +58,8 @@ let Users = (props) => {
                             </div>
                             <span className={style.notification_icon}>
                             { u.followed
-                                ?<button onClick={ () => { deleteFollow(u.id) } } className={style.accept_request}>UnFollow</button>
-                                :<button onClick={ () => { sendFollow(u.id)} } className={style.accept_request}>Follow</button>}
+                                ?<button disabled={props.followingInProgress.some(id => id === u.id)} onClick={ () => { deleteFollow(u.id) } } className={style.accept_request}>UnFollow</button>
+                                :<button disabled={props.followingInProgress.some(id => id === u.id)} onClick={ () => { sendFollow(u.id)} } className={style.accept_request}>Follow</button>}
                     </span>
                         </div>)
                     }

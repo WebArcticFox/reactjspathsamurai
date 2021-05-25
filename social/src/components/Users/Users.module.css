@@ -88,6 +88,10 @@
     fill: #fff;
 }
 
+.accept_request:disabled {
+    background-color: #888;
+}
+
 .item_friend {
     display: flex;
     width: 100%;
