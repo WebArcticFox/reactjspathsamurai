@@ -22,7 +22,7 @@ const App = (props) => {
         <div className="App">
             <SidebarContainer />
             <Header />
-            <Route path="/profile" render={ () => <ProfileContainer /> } />
+            <Route path="/profile/:userId?" render={ () => <ProfileContainer /> } />
             <Route path="/users" render={ () => <UsersContainer /> } />
             <Route path="/messages" render={ () => <MessagesContainer /> } />
             <Route path="/news" component={News}/>

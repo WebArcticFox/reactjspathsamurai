@@ -6,8 +6,7 @@ const AboutUser = (props) => {
         <div className={style.profile__content}>
             <p>Name: {props.profile.fullName}</p>
             <p>About me: {props.profile.aboutMe}</p>
-            <p>I'm find job: {props.profile.lookingForAJob? 'Yes': 'No'}</p>
-            <p>Link: <a href='https://webarcticfox.ru/'>webarcticfox.ru</a></p>
+            <p>I'm looking job: {props.profile.lookingForAJob? 'Yes': 'No'}</p>
             <br />
             <p>My social link:</p>
             {props.profile.contacts.facebook? <p>My Facebook: <a href={props.profile.contacts.facebook}>{props.profile.contacts.facebook}</a></p>:''}
