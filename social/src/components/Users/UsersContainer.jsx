@@ -10,7 +10,7 @@ import {
 import {connect} from "react-redux";
 import * as axios from "axios";
 import Users from "./Users";
-import Preloader from "../Prealoader/Preloader";
+import Preloader from "../common/Prealoader/Preloader";
 
 class UsersContainer extends React.Component{
     componentDidMount() {
@@ -40,7 +40,9 @@ class UsersContainer extends React.Component{
                     onFollow={this.props.onFollow}
                     unFollow={this.props.unFollow}
                     totalUsersCount={this.props.totalUsersCount}
-                    pageSize={this.props.pageSize} />}
+                    pageSize={this.props.pageSize}
+                    currentPage={this.props.currentPage}
+                />}
             </>
         )
     }
