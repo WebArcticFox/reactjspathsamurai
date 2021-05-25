@@ -2,6 +2,7 @@ import React from "react";
 import style from "./Users.module.css";
 import notFoundPhoto from "../../assets/images/not_found_photo.svg";
 import {NavLink} from "react-router-dom";
+import * as axios from "axios";
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount/props.pageSize)
@@ -9,6 +10,32 @@ let Users = (props) => {
     let pages = [];
     for (let i=1; i <= pagesCount; i++){
         pages.push(i);
+    }
+
+    let sendFollow = (userId) => {
+        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`, {}, {
+            withCredentials: true,
+            headers: {
+                "API-KEY": "c2a22318-a7af-4454-8310-6e9aed9fb5cd"
+            }
+        }).then(response => {
+            if(response.data.resultCode===0) {
+                props.follow(userId)
+            }
+        })
+    }
+
+    let deleteFollow = (userId) => {
+        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`, {
+            withCredentials: true,
+            headers: {
+                "API-KEY": "c2a22318-a7af-4454-8310-6e9aed9fb5cd"
+            }
+        }).then(response => {
+            if(response.data.resultCode===0) {
+                props.unFollow(userId)
+            }
+        })
     }
 
     return (
@@ -37,8 +64,8 @@ let Users = (props) => {
                             </div>
                             <span className={style.notification_icon}>
                             { u.followed
-                                ?<button onClick={ () => {props.unFollow(u.id)} } className={style.accept_request}>UnFollow</button>
-                                :<button onClick={ () => {props.follow(u.id)} } className={style.accept_request}>Follow</button>}
+                                ?<button onClick={ () => { deleteFollow(u.id) } } className={style.accept_request}>UnFollow</button>
+                                :<button onClick={ () => { sendFollow(u.id)} } className={style.accept_request}>Follow</button>}
                     </span>
                         </div>)
                     }
