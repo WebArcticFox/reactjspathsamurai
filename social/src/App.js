@@ -17,7 +17,7 @@ import Login from "./components/Login/Login";
 const App = (props) => {
   return (
       <>
-          {props.isAuth? <div className="App">
+          <div className="App">
               <SidebarContainer />
               <HeaderContainer />
               <Route path="/profile/:userId?" render={ () => <ProfileContainer /> } />
@@ -26,8 +26,9 @@ const App = (props) => {
               <Route path="/news" component={News}/>
               <Route path="/music" component={Music}/>
               <Route path="/settings" component={Settings}/>
+              <Route path="/login" component={Login}/>
               <Footer />
-          </div>: <Login/>}
+          </div>
 
       </>
   );
