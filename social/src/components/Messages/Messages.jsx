@@ -17,8 +17,6 @@ const Messages = (props) => {
         props.updateMessageText(newMessageArea.current.value)
     }
 
-    if(!props.isAuth) return <Redirect to={"/login"} />;
-
     return (
         <div className={style.container}>
             <div className={style.content}>
