@@ -1,3 +1,5 @@
+import {profileAPI} from "../api/api";
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
@@ -14,7 +16,7 @@ let initialState = {
             likeCount: '28'
         },
         {
-            postId: 1,
+            postId: 2,
             postH1: 'My workout in Belarus',
             postText: 'It\'s my first post',
             likeCount: '13'
@@ -61,5 +63,18 @@ export const addPost = () => ({type: ADD_POST})
 export const updatePostText = (text) => ({type: UPDATE_NEW_POST_TEXT, newPostText: text})
 export const setUserProfile = (userProfile) => ({type: SET_USER_PROFILE, userProfile})
 export const isFetchingChange = (isFetching) => ({type: IS_FETCHING_CHANGE, isFetching})
+
+
+// Thunk
+
+export const getProfile = (userId) => {
+    return (dispatch) => {
+        dispatch(isFetchingChange(true));
+        profileAPI.getProfile(userId).then(data => {
+            dispatch(setUserProfile(data));
+            dispatch(isFetchingChange(false));
+        })
+    }
+}
 
 export default profileReducer;

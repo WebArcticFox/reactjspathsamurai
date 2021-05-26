@@ -2,7 +2,6 @@ import React from "react";
 import style from "./Users.module.css";
 import notFoundPhoto from "../../assets/images/not_found_photo.svg";
 import {NavLink} from "react-router-dom";
-import {followsAPI} from "../../api/api";
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount/props.pageSize)
