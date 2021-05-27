@@ -1,7 +1,6 @@
 import {profileAPI} from "../api/api";
 
 const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const IS_FETCHING_CHANGE = 'IS_FETCHING_CHANGE';
 const SET_STATUS = 'SET_STATUS';
@@ -23,7 +22,6 @@ let initialState = {
             likeCount: '13'
         }
     ],
-    newPostText: '',
     status: ''
 }
 
@@ -33,18 +31,12 @@ const profileReducer = (state = initialState, action) => {
             let newPost = {
                 postId: 5,
                 postH1: 'Test',
-                postText: state.newPostText,
+                postText: action.postText,
                 likeCount: 0
             }
             return {
                 ...state,
-                postArray: [...state.postArray, newPost],
-                newPostText: ''
-            }
-        case UPDATE_NEW_POST_TEXT:
-            return {
-                ...state,
-                newPostText: action.newPostText
+                postArray: [...state.postArray, newPost]
             }
         case SET_USER_PROFILE:
             return {
@@ -67,8 +59,7 @@ const profileReducer = (state = initialState, action) => {
     }
 }
 
-export const addPost = () => ({type: ADD_POST})
-export const updatePostText = (text) => ({type: UPDATE_NEW_POST_TEXT, newPostText: text})
+export const addPost = (data) => ({type: ADD_POST, postText: data.postText})
 export const setUserProfile = (userProfile) => ({type: SET_USER_PROFILE, userProfile})
 export const isFetchingChange = (isFetching) => ({type: IS_FETCHING_CHANGE, isFetching})
 export const setStatus = (status) => ({type:SET_STATUS, status})

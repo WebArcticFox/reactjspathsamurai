@@ -1,5 +1,4 @@
 const SEND_MESSAGE = 'SEND-MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 
 let initialState = {
     messagesArray: [
@@ -50,8 +49,7 @@ let initialState = {
             lastMessage: 'Hello man! I can\'t get YouTube play for React',
             lastMessageDate: '2 days ago'
         }
-    ],
-    currentMessageText: ''
+    ]
 }
 
 const messagesReducer = (state = initialState, action) => {
@@ -60,25 +58,18 @@ const messagesReducer = (state = initialState, action) => {
             let newMessage = {
                 messageId: 5,
                 userImage: "https://st.fl.ru/users/he/heikun/foto/f_293609fee65839c2.jpeg",
-                textMessage: state.currentMessageText,
+                textMessage: action.messageText,
                 messageStyle: 'message_for_people'
             }
             return {
                 ...state,
-                messagesArray: [...state.messagesArray, newMessage],
-                currentMessageText: ''
-            }
-        case UPDATE_NEW_MESSAGE_TEXT:
-            return {
-                ...state,
-                currentMessageText: action.newMessageText
+                messagesArray: [...state.messagesArray, newMessage]
             }
         default:
             return state
     }
 }
 
-export const sendMessage = () => ({type: SEND_MESSAGE})
-export const updateMessageText = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newMessageText: text})
+export const sendMessage = (data) => ({type: SEND_MESSAGE, messageText: data.messageText})
 
 export default messagesReducer;

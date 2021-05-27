@@ -42,5 +42,19 @@ export const getMyAuth = () => {
     }
 }
 
+export const sendLogin = (formData) => {
+    return (dispatch) => {
+        authAPI.login(formData).then(data => {
+            if(data.resultCode===0){
+                authAPI.authMe().then(data => {
+                    if(data.resultCode===0) {
+                        let {id, login, email} = data.data
+                        dispatch(setAuthUserData(id,login,email))
+                    }
+                })
+            }
+        })
+    }
+}
 
 export default authReducer
