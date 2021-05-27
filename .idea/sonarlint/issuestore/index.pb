@@ -123,3 +123,25 @@ U
 %social/src/components/Users/Users.jsx,f/9/f9bff8e4aa46e0aa2710d5a21dc06a0831b7042c
 \
 ,social/src/components/Users/Users.module.css,8/8/88697051a3457b64d632ff4d9d79722c59f12d15
+V
+&social/src/assets/images/preloader.svg,f/6/f652ac7750018feec51120b06124d14c2f987894
+l
+<social/src/components/common/Prealoader/Preloader.module.css,e/7/e7a3f1ba2114b70ad751d9a88377d5ad9ea7b32b
+e
+5social/src/components/common/Prealoader/Preloader.jsx,8/f/8faa4e3443d7b55bb194a7659def8c83c1b291fd
+E
+social/src/api/api.js,6/e/6ebf6ad11ab9041739b674928b20cbcb5da9ecb4
+\
+,social/src/components/Login/Login.module.css,5/b/5bcdac8640a38d6e229f0f7b53da149e5af37dce
+U
+%social/src/components/Login/Login.jsx,4/a/4a3cc0eb364e6193323f8e908b53f67161c285e0
+J
+social/src/AppContainer.js,9/1/91018e7010bdbde7b40e31d97c67b2ae5a8baa1d
+O
+social/src/redux/authReducer.js,1/8/1892c7f327b40cbd169dcb06c78290a375f899fc
+R
+"social/src/hoc/withAuthRedirect.js,8/0/800c1cae642e771d868bc4a763b8103098ff3bb7
+b
+2social/src/components/Profile/ProfileContainer.jsx,f/d/fd086a72bb1bcecf550b2e5acde6d7ffd025ffeb
+`
+0social/src/components/Header/HeaderContainer.jsx,e/b/ebe6e68da6a93a681ae8694d8b90cca1852adb8f

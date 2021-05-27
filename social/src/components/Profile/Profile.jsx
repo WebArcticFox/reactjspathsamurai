@@ -4,6 +4,7 @@ import HeaderProfile from "./ProfileInfo/HeaderProfile/HeaderProfile";
 import AboutUser from "./ProfileInfo/AboutUser/AboutUser";
 import PostsContainer from "./Posts/PostsContainer";
 import Preloader from "../common/Prealoader/Preloader";
+import ProfileStatus from "./ProfileInfo/ProfileStatus/ProfileStatus";
 
 const Profile = (props) => {
 
@@ -18,6 +19,9 @@ const Profile = (props) => {
             </div>
             <div className={style.content}>
                 <AboutUser profile={props.profile} />
+            </div>
+            <div className={style.content}>
+                <ProfileStatus status='Hi' />
             </div>
             <div className={style.content}>
                 <PostsContainer />

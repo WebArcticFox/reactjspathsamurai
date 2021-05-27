@@ -10,10 +10,10 @@ export const withAuthRedirect = (Component) => {
             return <Component {...this.props} />
         }
     }
+    let mapStateToProps = (state) => ({
+        isAuth: state.auth.isAuth
+    })
 
     return connect(mapStateToProps,{})(RedirectComponent)
 }
 
-let mapStateToProps = (state) => ({
-    isAuth: state.auth.isAuth
-})
