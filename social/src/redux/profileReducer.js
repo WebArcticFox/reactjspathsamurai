@@ -4,6 +4,7 @@ const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const IS_FETCHING_CHANGE = 'IS_FETCHING_CHANGE';
+const SET_STATUS = 'SET_STATUS';
 
 let initialState = {
     profile: null,
@@ -22,7 +23,8 @@ let initialState = {
             likeCount: '13'
         }
     ],
-    newPostText: ''
+    newPostText: '',
+    status: ''
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -54,6 +56,12 @@ const profileReducer = (state = initialState, action) => {
                 isFetching: action.isFetching
             }
         }
+        case SET_STATUS: {
+            return {
+                ...state,
+                status: action.status
+            }
+        }
         default:
             return state;
     }
@@ -63,6 +71,7 @@ export const addPost = () => ({type: ADD_POST})
 export const updatePostText = (text) => ({type: UPDATE_NEW_POST_TEXT, newPostText: text})
 export const setUserProfile = (userProfile) => ({type: SET_USER_PROFILE, userProfile})
 export const isFetchingChange = (isFetching) => ({type: IS_FETCHING_CHANGE, isFetching})
+export const setStatus = (status) => ({type:SET_STATUS, status})
 
 
 // Thunk
@@ -73,6 +82,24 @@ export const getProfile = (userId) => {
         profileAPI.getProfile(userId).then(data => {
             dispatch(setUserProfile(data));
             dispatch(isFetchingChange(false));
+        })
+    }
+}
+
+export const getStatus = (userId) => {
+    return (dispatch) => {
+        profileAPI.getStatus(userId).then(data => {
+            dispatch(setStatus(data));
+        })
+    }
+}
+
+export const updateStatus = (status) => {
+    return (dispatch) => {
+        profileAPI.updateStatus(status).then(data => {
+            if(data.resultCode===0) {
+                dispatch(setStatus(status));
+            }
         })
     }
 }

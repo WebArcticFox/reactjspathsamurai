@@ -16,6 +16,10 @@
     padding: 0px;
 }
 
+.status {
+    height: 20px;
+}
+
 .comment_form__text_area {
     display: block;
     width: 100%;
