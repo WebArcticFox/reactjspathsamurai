@@ -4,12 +4,14 @@ import Background from "../../assets/images/landing_users.png"
 import {Field, reduxForm} from "redux-form";
 import {sendLogin} from "../../redux/authReducer";
 import {connect} from "react-redux";
+import {Input} from "../common/FormsItem/FormsItem";
+import {required} from "../../utils/validators/validators";
 
 let LoginForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
-            <div><Field placeholder={"Email"} name={"email"} component={"input"} /></div>
-            <div><Field placeholder={"Password"} name={"password"} component={"input"} /></div>
+            <div><Field placeholder={"Email"} name={"email"} component={Input} validate={[required]} /></div>
+            <div><Field placeholder={"Password"} name={"password"} component={Input} validate={[required]} /></div>
             <div><Field placeholder={"Remember me"} component={"input"} name={"rememberMe"} type={"checkbox"} /> Remember me</div>
             <div><button>Login</button></div>
         </form>

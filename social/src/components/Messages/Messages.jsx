@@ -5,13 +5,16 @@ import MessagesUser from "./MessagesUser/MessagesUser";
 import {Route} from "react-router-dom";
 import {Field, reduxForm} from "redux-form";
 import {sendMessage} from "../../redux/messagesReducer";
+import {TextArea} from "../common/FormsItem/FormsItem";
+import {maxLengthCreate, required} from "../../utils/validators/validators";
 
+const maxLength100 = maxLengthCreate(100)
 
 const FormMessage = (props) => {
     return (
         <form onSubmit={props.handleSubmit} className={style.comment_form}>
             <div className={style.comment_form__text}>
-                <Field placeholder={"New message"} name={"messageText"} component={"textarea"} className={style.comment_form__text_area}  />
+                <Field placeholder={"New message"} name={"messageText"} component={TextArea} className={style.comment_form__text_area} validate={[required, maxLength100]} />
             </div>
             <button className={style.comment_form__input}>Send</button>
         </form>
