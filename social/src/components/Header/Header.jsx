@@ -15,6 +15,7 @@ const Header = (props) => {
                             {props.login}
                         </div>
                         <span className={style.author_subtitle}>REACT COWBOY</span>
+                        <button onClick={props.logoutUser}>Logout</button>
                     </NavLink>
                 </div>:<NavLink to="/login" className={style.login_user}>Login</NavLink>}
 

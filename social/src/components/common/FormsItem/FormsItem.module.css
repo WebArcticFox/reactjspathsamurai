@@ -1,9 +1,17 @@
 .item_form input, .item_form textarea {
-    border: px solid #3f4257;
+    border: 1px solid #3f4257;
     border-radius: 3px;
     transition: all 0.2s;
 }
 
 .item_form.error input, .item_form.error textarea {
     border: 1px solid red;
+}
+
+.all_form_error {
+    text-align: center;
+    color: #fff;
+    border-radius: 3px;
+    background-color: red;
+    padding: 10px 10px;
 }

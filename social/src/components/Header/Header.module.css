@@ -2,6 +2,7 @@
     max-width: 1100px;
     display: flex;
     align-self: center;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
 }
@@ -11,6 +12,7 @@
     background-color: #3f4257;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .header .page_title {

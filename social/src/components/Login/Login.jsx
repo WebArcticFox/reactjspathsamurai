@@ -6,6 +6,7 @@ import {sendLogin} from "../../redux/authReducer";
 import {connect} from "react-redux";
 import {Input} from "../common/FormsItem/FormsItem";
 import {required} from "../../utils/validators/validators";
+import styleForm from "../common/FormsItem/FormsItem.module.css"
 
 let LoginForm = (props) => {
     return (
@@ -13,7 +14,11 @@ let LoginForm = (props) => {
             <div><Field placeholder={"Email"} name={"email"} component={Input} validate={[required]} /></div>
             <div><Field placeholder={"Password"} name={"password"} component={Input} validate={[required]} /></div>
             <div><Field placeholder={"Remember me"} component={"input"} name={"rememberMe"} type={"checkbox"} /> Remember me</div>
+            {props.error && <div className={styleForm.all_form_error}>
+                {props.error}
+            </div>}
             <div><button>Login</button></div>
+            <div><button onClick={props.reset}>Clear form</button> </div>
         </form>
     )
 }

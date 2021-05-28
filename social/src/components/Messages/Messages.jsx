@@ -4,7 +4,6 @@ import Message from "./Message/Message";
 import MessagesUser from "./MessagesUser/MessagesUser";
 import {Route} from "react-router-dom";
 import {Field, reduxForm} from "redux-form";
-import {sendMessage} from "../../redux/messagesReducer";
 import {TextArea} from "../common/FormsItem/FormsItem";
 import {maxLengthCreate, required} from "../../utils/validators/validators";
 
