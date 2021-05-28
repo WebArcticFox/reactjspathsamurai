@@ -5,7 +5,7 @@ import store from "./redux/redux-store";
 import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
-import AppContainer from "./AppContainer";
+import App from "./App";
 
 
 let rerenderTree = (store) => {
@@ -13,7 +13,7 @@ let rerenderTree = (store) => {
         <React.StrictMode>
             <BrowserRouter>
                 <Provider store={store}>
-                    <AppContainer />
+                    <App />
                 </Provider>
             </BrowserRouter>
         </React.StrictMode>,

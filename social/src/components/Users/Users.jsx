@@ -15,14 +15,7 @@ let Users = (props) => {
     return (
         <div className={style.container}>
             <div className={style.content}>
-                <div className={style.pagination}>
-                    { pages.map(page => {
-                        return(
-                            <div onClick={ (e) => { props.onPageChange(page) } } key={page} className={`${style.pagination_item} ${props.currentPage===page? style.active_page: ''}`}>{page}</div>
-                        )
-                    })}
-                </div>
-                {/*<button className={style.get_users} onClick={this.getUsers}>Get users</button>*/}
+
                 <div className={style.notification_list}>
                     {
                         props.users.map(u => <div className={style.item_friend} key={u.id}>
@@ -43,6 +36,13 @@ let Users = (props) => {
                     </span>
                         </div>)
                     }
+                </div>
+                <div className={style.pagination}>
+                    { pages.map(page => {
+                        return(
+                            <div onClick={ (e) => { props.onPageChange(page) } } key={page} className={`${style.pagination_item} ${props.currentPage===page? style.active_page: ''}`}>{page}</div>
+                        )
+                    })}
                 </div>
             </div>
         </div>

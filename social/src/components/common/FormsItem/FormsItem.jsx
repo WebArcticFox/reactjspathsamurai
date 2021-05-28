@@ -9,7 +9,7 @@ const FormControl = ({input, meta, element, ...props}) => {
             <div>
                 <NewElement {...input} {...props} />
             </div>
-            { hasError && <span>{meta.error}</span> }
+            { hasError && <span className={style.error_span}>{meta.error}</span> }
         </div>
     )
 }

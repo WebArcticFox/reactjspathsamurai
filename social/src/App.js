@@ -11,27 +11,46 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import {Route} from "react-router-dom";
 import Login from "./components/Login/Login";
+import {connect} from "react-redux";
+import Preloader from "./components/common/Prealoader/Preloader";
+import {initializeApp} from "./redux/appReducer";
 
 
+class App extends React.Component {
+    componentDidMount() {
+        this.props.initializeApp()
+    }
 
-const App = (props) => {
-  return (
-      <>
-          {props.isAuth? <div className="App">
-              <SidebarContainer />
-              <HeaderContainer />
-              <Route path="/profile/:userId?" render={ () => <ProfileContainer /> } />
-              <Route path="/users" render={ () => <UsersContainer /> } />
-              <Route path="/messages" render={ () => <MessagesContainer /> } />
-              <Route path="/news" component={News}/>
-              <Route path="/music" component={Music}/>
-              <Route path="/settings" component={Settings}/>
-              <Footer />
-          </div> : <Login />}
+    render() {
+        if(!this.props.initialized){
+            return <Preloader />
+        }
+        if(!this.props.isAuth){
+            return <Login/>
+        }
 
-
-      </>
-  );
+        return (
+            <div className="App">
+                <SidebarContainer/>
+                <HeaderContainer/>
+                <Route path="/profile/:userId?" render={() => <ProfileContainer/>}/>
+                <Route path="/users" render={() => <UsersContainer/>}/>
+                <Route path="/messages" render={() => <MessagesContainer/>}/>
+                <Route path="/news" component={News}/>
+                <Route path="/music" component={Music}/>
+                <Route path="/settings" component={Settings}/>
+                <Footer/>
+            </div>
+        )
+    }
 }
 
-export default App;
+let mapStateToProps = (state) => {
+    return {
+        isAuth: state.auth.isAuth,
+        initialized: state.app.initialized
+    }
+}
+
+export default connect(mapStateToProps,{initializeApp})(App);
+

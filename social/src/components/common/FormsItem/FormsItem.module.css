@@ -1,11 +1,36 @@
 .item_form input, .item_form textarea {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 1.1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #e6ecf5;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     border: 1px solid #3f4257;
     border-radius: 3px;
     transition: all 0.2s;
+    padding: 0.5rem 1rem;
+    line-height: 1.75;
+    box-sizing: border-box;
+    outline: none;
 }
 
 .item_form.error input, .item_form.error textarea {
-    border: 1px solid red;
+    border: 1px solid #3f4257;
+}
+
+.item_form {
+    margin: 1rem 0;
+}
+
+.item_form.error {
+    position: relative;
 }
 
 .all_form_error {
@@ -14,4 +39,26 @@
     border-radius: 3px;
     background-color: red;
     padding: 10px 10px;
+}
+
+.error_span {
+    position: absolute;
+    left: 100.3%;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    background-color: #ff5e3a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.9;
+    border-radius: 0 10px 10px 0;
+}
+
+input[type=checkbox] {
+    vertical-align: middle;
+    position: relative;
+    top: 1px;
+    padding-right: 5px;
+    display: inline-block;
 }
