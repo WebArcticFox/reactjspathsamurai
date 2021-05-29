@@ -4,7 +4,7 @@ import HeaderProfile from "./ProfileInfo/HeaderProfile/HeaderProfile";
 import AboutUser from "./ProfileInfo/AboutUser/AboutUser";
 import PostsContainer from "./Posts/PostsContainer";
 import Preloader from "../common/Prealoader/Preloader";
-import ProfileStatus from "./ProfileInfo/ProfileStatus/ProfileStatus";
+import ProfileStatusHooks from "./ProfileInfo/ProfileStatus/ProfileStatusHooks";
 
 const Profile = (props) => {
 
@@ -21,7 +21,7 @@ const Profile = (props) => {
                 <AboutUser profile={props.profile} />
             </div>
             <div className={style.content}>
-                <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+                <ProfileStatusHooks status={props.status} updateStatus={props.updateStatus} />
             </div>
             <div className={style.content}>
                 <PostsContainer />
