@@ -92,40 +92,33 @@ export const isFollowingChange = (followingInProgress, userId) => ({type: IS_FOL
 
 
 // Thunks
-export const getUsers = (currentPage, pageSize) => {
-    return(dispatch) => {
-        dispatch(isFetchingChange(true));
-        dispatch(setCurrentPage(currentPage));
-        usersAPI.getUsers(currentPage, pageSize).then(data => {
-            dispatch(setUsers(data.items))
-            dispatch(setTotalUsersCount(data.totalCount))
-            dispatch(isFetchingChange(false))
-        })
-    }
+export const getUsers = (currentPage, pageSize) => async(dispatch) => {
+    dispatch(isFetchingChange(true));
+    dispatch(setCurrentPage(currentPage));
+    let data = await usersAPI.getUsers(currentPage, pageSize)
+    dispatch(setUsers(data.items))
+    dispatch(setTotalUsersCount(data.totalCount))
+    dispatch(isFetchingChange(false))
 }
 
-export const followUser = (userId) => {
-    return(dispatch) => {
-        dispatch(isFollowingChange(true, userId))
-        followsAPI.follow(userId).then(data => {
-            if(data.resultCode===0) {
-                dispatch(follow(userId))
-            }
-            dispatch(isFollowingChange(false, userId))
-        })
+
+export const followUser = (userId) => async (dispatch) => {
+    dispatch(isFollowingChange(true, userId))
+    let data = await followsAPI.follow(userId)
+    if(data.resultCode===0) {
+        dispatch(follow(userId))
     }
+    dispatch(isFollowingChange(false, userId))
 }
 
-export const unFollowUser = (userId) => {
-    return(dispatch) => {
-        dispatch(isFollowingChange(true, userId))
-        followsAPI.unFollow(userId).then(data => {
-            if(data.resultCode===0) {
-                dispatch(unFollow(userId))
-            }
-            dispatch(isFollowingChange(false, userId))
-        })
+
+export const unFollowUser = (userId) => async (dispatch) => {
+    dispatch(isFollowingChange(true, userId))
+    let data = await followsAPI.unFollow(userId)
+    if(data.resultCode===0) {
+        dispatch(unFollow(userId))
     }
+    dispatch(isFollowingChange(false, userId))
 }
 
 

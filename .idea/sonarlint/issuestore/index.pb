@@ -135,8 +135,6 @@ E
 ,social/src/components/Login/Login.module.css,5/b/5bcdac8640a38d6e229f0f7b53da149e5af37dce
 U
 %social/src/components/Login/Login.jsx,4/a/4a3cc0eb364e6193323f8e908b53f67161c285e0
-J
-social/src/AppContainer.js,9/1/91018e7010bdbde7b40e31d97c67b2ae5a8baa1d
 O
 social/src/redux/authReducer.js,1/8/1892c7f327b40cbd169dcb06c78290a375f899fc
 R
@@ -145,3 +143,21 @@ b
 2social/src/components/Profile/ProfileContainer.jsx,f/d/fd086a72bb1bcecf550b2e5acde6d7ffd025ffeb
 `
 0social/src/components/Header/HeaderContainer.jsx,e/b/ebe6e68da6a93a681ae8694d8b90cca1852adb8f
+€
+Psocial/src/components/Profile/ProfileInfo/ProfileStatus/ProfileStatus.module.css,a/4/a4c2a4ce7c96a67674d2a5637a509a36d1a10be7
+Y
+)social/src/utils/validators/validators.js,5/b/5ba5cb435e97de2ab24d2a23e2bd1e9b54fc6b56
+N
+social/src/redux/appReducer.js,3/d/3d2d8ea557409474c4236083a5bed58fa68423dd
+k
+;social/src/components/common/FormsItem/FormsItem.module.css,6/9/695f4c2dd66f42b0feafa0a80149595d3f96f82f
+d
+4social/src/components/common/FormsItem/FormsItem.jsx,1/6/167a77ba1538f911e9d54d2560aa4de226c3534a
+P
+ social/src/redux/UserSelector.js,2/9/29134eee2fa7a1b3f967c3afe9a1ca0bd9a01738
+~
+Nsocial/src/components/Profile/ProfileInfo/ProfileStatus/ProfileStatusHooks.jsx,f/f/ff6b5469a7cccaacef542ffc3be468a73d325ac0
+y
+Isocial/src/components/Profile/ProfileInfo/ProfileStatus/ProfileStatus.jsx,d/8/d8fd361d852c66c456cbcb53af6aedf9e6d99f2b
+W
+'social/src/redux/profileResucer.test.js,8/9/8988f3872faa2af69c32d378f2f9f1b138f47caf

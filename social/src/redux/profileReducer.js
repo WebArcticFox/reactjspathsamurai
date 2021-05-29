@@ -75,31 +75,23 @@ export const deletePost = (postId) => ({type: DELETE_POST, postId})
 
 // Thunk
 
-export const getProfile = (userId) => {
-    return (dispatch) => {
-        dispatch(isFetchingChange(true));
-        profileAPI.getProfile(userId).then(data => {
-            dispatch(setUserProfile(data));
-            dispatch(isFetchingChange(false));
-        })
-    }
+export const getProfile = (userId) => async (dispatch) => {
+    dispatch(isFetchingChange(true));
+    let data = await profileAPI.getProfile(userId)
+    dispatch(setUserProfile(data));
+    dispatch(isFetchingChange(false));
+
 }
 
-export const getStatus = (userId) => {
-    return (dispatch) => {
-        profileAPI.getStatus(userId).then(data => {
-            dispatch(setStatus(data));
-        })
-    }
+export const getStatus = (userId) => async (dispatch) => {
+    let data = await profileAPI.getStatus(userId)
+    dispatch(setStatus(data));
 }
 
-export const updateStatus = (status) => {
-    return (dispatch) => {
-        profileAPI.updateStatus(status).then(data => {
-            if(data.resultCode===0) {
-                dispatch(setStatus(status));
-            }
-        })
+export const updateStatus = (status) => async (dispatch) => {
+    let data = await profileAPI.updateStatus(status)
+    if(data.resultCode===0) {
+        dispatch(setStatus(status));
     }
 }
 

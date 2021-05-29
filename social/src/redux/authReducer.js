@@ -53,25 +53,20 @@ export const getMyAuth = () => {
     }
 }
 
-export const sendLogin = (formData) => {
-    return (dispatch) => {
-        authAPI.login(formData).then(data => {
-            if(data.resultCode===0){
-                dispatch(getMyAuth())
-            }else{
-                dispatch(stopSubmit("login", {_error: data.messages}))
-            }
-        })
+export const sendLogin = (formData) => async (dispatch) => {
+    let data = await authAPI.login(formData)
+    if(data.resultCode===0){
+        dispatch(getMyAuth())
+    }else{
+        dispatch(stopSubmit("login", {_error: data.messages}))
     }
+
 }
 
-export const logoutUser = () => {
-    return (dispatch) => {
-        authAPI.logout().then(data => {
-            if(data.resultCode===0){
-               dispatch(deleteUserData())
-            }
-        })
+export const logoutUser = () => async (dispatch) => {
+    let data = await authAPI.logout()
+    if(data.resultCode===0){
+       dispatch(deleteUserData())
     }
 }
 
