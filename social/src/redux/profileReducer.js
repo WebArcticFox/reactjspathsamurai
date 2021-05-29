@@ -4,6 +4,7 @@ const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const IS_FETCHING_CHANGE = 'IS_FETCHING_CHANGE';
 const SET_STATUS = 'SET_STATUS';
+const DELETE_POST = 'DELETE_POST';
 
 let initialState = {
     profile: null,
@@ -48,6 +49,12 @@ const profileReducer = (state = initialState, action) => {
                 isFetching: action.isFetching
             }
         }
+        case DELETE_POST: {
+            return {
+                ...state,
+                postArray: state.postArray.filter(post => post.postId!==action.postId)
+            }
+        }
         case SET_STATUS: {
             return {
                 ...state,
@@ -63,6 +70,7 @@ export const addPost = (data) => ({type: ADD_POST, postText: data.postText})
 export const setUserProfile = (userProfile) => ({type: SET_USER_PROFILE, userProfile})
 export const isFetchingChange = (isFetching) => ({type: IS_FETCHING_CHANGE, isFetching})
 export const setStatus = (status) => ({type:SET_STATUS, status})
+export const deletePost = (postId) => ({type: DELETE_POST, postId})
 
 
 // Thunk
