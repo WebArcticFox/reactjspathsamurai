@@ -1,11 +1,14 @@
 import style from "./ProfileStatus.module.css";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 const ProfileStatusHooks = (props) => {
 
     let [editMode, setEditMode] = useState(false)
     let [textValue, setTextValue] = useState(props.status)
 
+    useEffect( () => {
+        setTextValue(props.status)
+    },[props.status] )
 
     const onEditMode = () => {
         setEditMode(true)
