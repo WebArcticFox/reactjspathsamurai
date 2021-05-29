@@ -22,8 +22,6 @@ const formSendPost = (props) => {
 const SendPostReduxForm = reduxForm({form: 'sendPost'})(formSendPost)
 
 const Posts = (props) => {
-
-
     return (
         <div>
             <div className={style.profile__posts}>

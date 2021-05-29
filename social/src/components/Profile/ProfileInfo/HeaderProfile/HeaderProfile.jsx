@@ -2,7 +2,7 @@ import style from "./HeaderProfile.module.css";
 import React from "react";
 import notFoundPhoto from "../../../../assets/images/not_found_photo.svg";
 
-const HeaderProfile = (props) => {
+const HeaderProfile = React.memo(props => {
     return(
         <div>
             <div className={style.top_header_thumb}>
@@ -17,6 +17,6 @@ const HeaderProfile = (props) => {
             </div>
         </div>
     )
-}
+})
 
 export default HeaderProfile;
