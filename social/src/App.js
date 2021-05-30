@@ -41,6 +41,7 @@ class App extends React.Component {
                 <Route path="/news" component={News}/>
                 <Route path="/music" component={Music}/>
                 <Route path="/settings" component={Settings}/>
+
                 <Footer/>
             </div>
         )
