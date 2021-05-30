@@ -126,28 +126,3 @@
     border-color: #ff763a;
     opacity: 1;
 }
-
-.pagination {
-    padding: 20px;
-    display: block;
-    text-align: center;
-}
-
-.pagination_item {
-    padding: 3px 0;
-    margin: 0 5px 5px;
-    border-radius: 3px;
-    background-color: #3f4257;
-    color: #fff;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-size: 0.8em;
-    font-weight: bold;
-    display: inline-block;
-    width: 30px;
-}
-
-.pagination_item:hover, .pagination_item.active_page {
-    color: #ffffff;
-    background-color: #ff5e3a;
-}

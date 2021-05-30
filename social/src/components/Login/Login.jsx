@@ -1,24 +1,24 @@
 import React from "react";
 import style from "./Login.module.css"
 import Background from "../../assets/images/landing_users.png"
-import {Field, reduxForm} from "redux-form";
+import {reduxForm} from "redux-form";
 import {sendLogin} from "../../redux/authReducer";
 import {connect} from "react-redux";
-import {Input} from "../common/FormsItem/FormsItem";
+import {createField, Input} from "../common/FormsItem/FormsItem";
 import {required} from "../../utils/validators/validators";
 import styleForm from "../common/FormsItem/FormsItem.module.css"
 
-let LoginForm = (props) => {
+let LoginForm = ({handleSubmit, error, reset}) => {
     return (
-        <form onSubmit={props.handleSubmit}>
-            <div><Field placeholder={"Email"} name={"email"} component={Input} validate={[required]} /></div>
-            <div><Field placeholder={"Password"} name={"password"} component={Input} validate={[required]} /></div>
-            <div><Field placeholder={"Remember me"} component={"input"} name={"rememberMe"} type={"checkbox"} /> Remember me</div>
-            {props.error && <div className={styleForm.all_form_error}>
-                {props.error}
+        <form onSubmit={handleSubmit}>
+            {createField("Email","email",[required],Input,'text')}
+            {createField("Password","password",[required],Input,'password')}
+            {createField(null,"rememberMe",[],Input,'checkbox', "Remember me")}
+            {error && <div className={styleForm.all_form_error}>
+                {error}
             </div>}
             <div><button>Login</button></div>
-            <div><button onClick={props.reset}>Clear form</button> </div>
+            <div><button onClick={reset}>Clear form</button> </div>
         </form>
     )
 }

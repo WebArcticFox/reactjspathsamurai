@@ -23,12 +23,11 @@ const appReducer = (state = initialState, action) => {
 export const initializedSuccess = () => ({type: INITIALIZED})
 // Thunk
 
-export const initializeApp = () => {
-    return (dispatch) => {
-        dispatch(getMyAuth()).then(() => {
-            dispatch(initializedSuccess())
-        })
-    }
+export const initializeApp = () =>  (dispatch) => {
+    dispatch(getMyAuth()).then(() => {
+        dispatch(initializedSuccess())
+    })
 }
+
 
 export default appReducer

@@ -1,7 +1,6 @@
 import {followsAPI, usersAPI} from "../api/api";
 
-const FOLLOW = 'FOLLOW';
-const UN_FOLLOW = 'UN_FOLLOW';
+const FOLLOWING = 'FOLLOWING';
 const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
@@ -19,27 +18,14 @@ let initialState = {
 
 const usersReducer = (state = initialState, action) => {
     switch(action.type) {
-        case FOLLOW:
+        case FOLLOWING:
             return {
                 ...state,
                 users: state.users.map(u => {
                     if (u.id === action.userID){
                         return {
                             ...u,
-                            followed: true
-                        }
-                    }
-                    return u
-                })
-            }
-        case UN_FOLLOW:
-            return {
-                ...state,
-                users: state.users.map(u => {
-                    if (u.id === action.userID){
-                        return {
-                            ...u,
-                            followed: false
+                            followed: action.status
                         }
                     }
                     return u
@@ -82,8 +68,7 @@ const usersReducer = (state = initialState, action) => {
     }
 }
 
-export const follow = (userID) => ({type: FOLLOW, userID })
-export const unFollow = (userID) => ({type: UN_FOLLOW, userID })
+export const following = (userID, status) => ({type: FOLLOWING, userID, status })
 export const setUsers = (users) => ({type: SET_USERS, users})
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
 export const setTotalUsersCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, totalUsersCount})
@@ -101,24 +86,22 @@ export const getUsers = (currentPage, pageSize) => async(dispatch) => {
     dispatch(isFetchingChange(false))
 }
 
-
-export const followUser = (userId) => async (dispatch) => {
+const followRequestUser = async (dispatch, userId, needFollowing, followMethod) => {
     dispatch(isFollowingChange(true, userId))
-    let data = await followsAPI.follow(userId)
+    let data = await followMethod(userId)
     if(data.resultCode===0) {
-        dispatch(follow(userId))
+        dispatch(following(userId,needFollowing))
     }
     dispatch(isFollowingChange(false, userId))
 }
 
+export const followUser = (userId) => (dispatch) => {
+    followRequestUser(dispatch, userId, true, followsAPI.follow.bind(followsAPI))
+}
 
-export const unFollowUser = (userId) => async (dispatch) => {
-    dispatch(isFollowingChange(true, userId))
-    let data = await followsAPI.unFollow(userId)
-    if(data.resultCode===0) {
-        dispatch(unFollow(userId))
-    }
-    dispatch(isFollowingChange(false, userId))
+
+export const unFollowUser = (userId) => (dispatch) => {
+    followRequestUser(dispatch, userId, false, followsAPI.unFollow.bind(followsAPI))
 }
 
 
