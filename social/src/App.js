@@ -13,6 +13,7 @@ import {connect, Provider} from "react-redux";
 import Preloader from "./components/common/Prealoader/Preloader";
 import {initializeApp} from "./redux/appReducer";
 import {compose} from "redux";
+import {withSuspense} from "./hoc/withSuspense";
 
 const MessagesContainer = React.lazy(() => import("./components/Messages/MessagesContainer"));
 const ProfileContainer = React.lazy(()=>import("./components/Profile/ProfileContainer"));
@@ -34,13 +35,9 @@ class App extends React.Component {
             <div className="App">
                 <SidebarContainer/>
                 <HeaderContainer/>
-                <Suspense fallback={<Preloader />}>
-                    <Route path="/profile/:userId?" render={() => <ProfileContainer/>}/>
-                </Suspense>
+                <Route path="/profile/:userId?" render={withSuspense(ProfileContainer)}/>
                 <Route path="/users" render={() => <UsersContainer/>}/>
-                <Suspense fallback={<Preloader />}>
-                    <Route path="/messages" render={() => <MessagesContainer/>}/>
-                </Suspense>
+                <Route path="/messages" render={withSuspense(MessagesContainer)}/>
                 <Route path="/news" component={News}/>
                 <Route path="/music" component={Music}/>
                 <Route path="/settings" component={Settings}/>
@@ -63,7 +60,7 @@ let AppContainer = compose(
 
 let SocialApp = (props) => {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
             <Provider store={props.store}>
                 <AppContainer />
             </Provider>
