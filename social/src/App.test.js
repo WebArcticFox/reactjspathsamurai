@@ -1,8 +1,10 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import SocialApp from './App';
+import store from "./redux/redux-store";
+import React from "react";
+import * as ReactDOM from "react-dom";
 
 test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const div = document.createElement('div')
+  ReactDOM.render(<SocialApp store={store} />, div);
+  ReactDOM.unmountComponentAtNode(div)
 });

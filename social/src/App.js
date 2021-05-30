@@ -9,11 +9,12 @@ import UsersContainer from "./components/Users/UsersContainer";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import {Route} from "react-router-dom";
+import {BrowserRouter, Route} from "react-router-dom";
 import Login from "./components/Login/Login";
-import {connect} from "react-redux";
+import {connect, Provider} from "react-redux";
 import Preloader from "./components/common/Prealoader/Preloader";
 import {initializeApp} from "./redux/appReducer";
+import {compose} from "redux";
 
 
 class App extends React.Component {
@@ -52,5 +53,18 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps,{initializeApp})(App);
+let AppContainer = compose(
+    connect(mapStateToProps,{initializeApp})
+)(App)
 
+let SocialApp = (props) => {
+    return (
+        <BrowserRouter>
+            <Provider store={props.store}>
+                <AppContainer />
+            </Provider>
+        </BrowserRouter>
+    )
+}
+
+export default SocialApp
