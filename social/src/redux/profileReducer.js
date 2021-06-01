@@ -5,6 +5,7 @@ const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const IS_FETCHING_CHANGE = 'IS_FETCHING_CHANGE';
 const SET_STATUS = 'SET_STATUS';
 const DELETE_POST = 'DELETE_POST';
+const SAVE_PHOTO = 'SAVE_PHOTO';
 
 let initialState = {
     profile: null,
@@ -61,6 +62,12 @@ const profileReducer = (state = initialState, action) => {
                 status: action.status
             }
         }
+        case SAVE_PHOTO: {
+            return {
+                ...state,
+                profile: {...state.profile, photos: action.photos}
+            }
+        }
         default:
             return state;
     }
@@ -71,7 +78,7 @@ export const setUserProfile = (userProfile) => ({type: SET_USER_PROFILE, userPro
 export const isFetchingChange = (isFetching) => ({type: IS_FETCHING_CHANGE, isFetching})
 export const setStatus = (status) => ({type:SET_STATUS, status})
 export const deletePost = (postId) => ({type: DELETE_POST, postId})
-
+export const savePhotoSuccess = (photos) => ({type: SAVE_PHOTO, photos})
 
 // Thunk
 
@@ -92,6 +99,13 @@ export const updateStatus = (status) => async (dispatch) => {
     let data = await profileAPI.updateStatus(status)
     if(data.resultCode===0) {
         dispatch(setStatus(status));
+    }
+}
+
+export const savePhoto = (file) => async (dispatch) => {
+    let data = await profileAPI.uploadPhoto(file)
+    if(data.resultCode===0) {
+        dispatch(savePhotoSuccess(data.data.photos));
     }
 }
 

@@ -1,7 +1,7 @@
 let getArrayPagination = (totalUsersCount, pageSize, currentPage) => {
     let pagesCount = Math.ceil(totalUsersCount/pageSize)
 
-    let range       = pageSize,
+    let range       = 10,
         totalPages  = pagesCount,
         start       = 1;
 

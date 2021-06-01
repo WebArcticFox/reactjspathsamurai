@@ -2,22 +2,33 @@ import React from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
 import Preloader from "../common/Prealoader/Preloader";
-import {getProfile, getStatus, updateStatus} from "../../redux/profileReducer";
+import {getProfile, getStatus, savePhoto, updateStatus} from "../../redux/profileReducer";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 
 
 class ProfileContainer extends React.Component {
-    componentDidMount() {
-        let userId = this.props.match.params.userId? this.props.match.params.userId: this.props.currentUserId
+    refreshProfile () {
+        let userId = this.props.match.params.userId ? this.props.match.params.userId : this.props.currentUserId
         this.props.getProfile(userId)
         this.props.getStatus(userId)
+    }
+
+
+    componentDidMount() {
+        this.refreshProfile()
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(prevProps.match.params.userId!==this.props.match.params.userId) {
+            this.refreshProfile()
+        }
     }
 
     render () {
         return (
             <>
-            {this.props.isFetching ? <Preloader /> : <Profile {...this.props} />}
+            {this.props.isFetching ? <Preloader /> : <Profile {...this.props} savePhoto={this.props.savePhoto} isOwner={!this.props.match.params.userId} />}
             </>
         )
     }
@@ -34,6 +45,6 @@ let mapStateToProps = (state) => {
 
 
 export default compose(
-    connect(mapStateToProps,{getProfile,getStatus,updateStatus}),
+    connect(mapStateToProps,{getProfile,getStatus,updateStatus,savePhoto}),
     withRouter
 )(ProfileContainer);

@@ -15,13 +15,13 @@ const Profile = (props) => {
     return (
         <div className={style.container}>
             <div className={style.content}>
-                <HeaderProfile profile={props.profile} />
+                <HeaderProfile profile={props.profile} savePhoto={props.savePhoto} isOwner={props.isOwner} />
             </div>
             <div className={style.content}>
                 <AboutUser profile={props.profile} />
             </div>
             <div className={style.content}>
-                <ProfileStatusHooks status={props.status} updateStatus={props.updateStatus} />
+                <ProfileStatusHooks isOwner={props.isOwner} status={props.status} updateStatus={props.updateStatus} />
             </div>
             <div className={style.content}>
                 <PostsContainer />
